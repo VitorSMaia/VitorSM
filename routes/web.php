@@ -40,6 +40,7 @@ Route::group(['middleware' => 'guest'], function() {
 
 Route::group(['middleware' => 'ip'], function() {
     Route::view('/','index')->name('/');
+    Route::view('/post','posts')->name('post');
     Route::view('/post/{id}','post')->name('post');
 });
 

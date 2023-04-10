@@ -13,6 +13,10 @@
         padding: 0;
     }
 
+    textarea:focus, input:focus{
+        outline: none;
+    }
+
     .form-checkbox {
         -webkit-appearance: none;
         -moz-appearance: none;

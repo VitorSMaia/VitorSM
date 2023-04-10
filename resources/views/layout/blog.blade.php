@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html class="scroll-smooth">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,9 +14,9 @@
     <a href="/">VitorSM Blog</a>
     <div class="hidden lg:flex gap-x-5">
         <a href="/post">Blogs</a>
-        <a href="">GitHub</a>
+        <a target="_blank" href="https://github.com/VitorSMaia/">GitHub</a>
         <a href="">Twitter</a>
-        <a href="">{{ \Illuminate\Support\Facades\Auth::user()->name ?? 'TESTE'}}</a>
+        <a href="#contact">Contate-me</a>
         @if(Auth::check())
             {{--                <a href="{{ Auth::logout() }}">Sair</a>--}}
         @else

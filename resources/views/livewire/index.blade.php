@@ -59,5 +59,26 @@
                 @endforelse
             </div>
         </div>
+        <div id="contact">
+            <div class="flex justify-center items-center p-5">
+                <p class="text-4xl w-[20%] text-center border-b-4 border-blue-900"> Contate-me </p>
+            </div>
+            <div>
+                <form class="grid grid-cols-2 gap-5" action="">
+                    <label  for="">
+                        Nome
+                        <input type="text" required class="h-12 w-full shadow-md shadow-blue-300 text-black appearance-none rounded-lg bg-opacity-20 px-3 py-2">
+                    </label>
+                    <label for="">
+                        E-mail
+                        <input type="email" required class="h-12 w-full shadow-md shadow-blue-300 text-black appearance-none rounded-lg bg-opacity-20  px-3 py-2">
+                    </label>
+                    <label class="col-span-2" for="">
+                        Menssagem
+                        <textarea class="w-full shadow-md shadow-blue-300 text-black appearance-none rounded-lg bg-opacity-20  px-3 py-2"  rows="10"></textarea>
+                    </label>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
