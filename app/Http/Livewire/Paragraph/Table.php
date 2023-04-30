@@ -14,7 +14,7 @@ class Table extends Component
     public $state = [
         'search' => '',
         'head' => [
-            'Conteudo' => 'content',
+            'Content' => 'content',
         ]
     ];
 

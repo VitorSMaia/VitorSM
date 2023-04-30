@@ -11,4 +11,8 @@ class Helper {
             return Carbon::parse($date)->format('M d, Y');
         }
     }
+
+    public function formatModelInput($model = '') {
+        return ucfirst($model);
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\hasMany;
 
 class Post extends Model
 {
@@ -15,5 +16,11 @@ class Post extends Model
      * @var array
      */
 
-    protected $fillable = ['title', 'image'];
+    protected $fillable = ['title', 'detail', 'image'];
+
+
+    public function paragraph(): HasMany
+    {
+        return  $this->hasMany(PostParagraphs::class, 'post_id', 'id')->orderBy('order', 'ASC');
+    }
 }

@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Post;
 use App\Traits\ModalCenter;
 use Livewire\Component;
+use App\Http\Controllers\Posts\Form as PostFormController;
 
 class Table extends Component
 {
@@ -14,7 +15,7 @@ class Table extends Component
     public $state = [
         'search' => '',
         'head' => [
-            'Título' => 'title',
+            'Title' => 'title',
         ]
     ];
 
@@ -22,14 +23,12 @@ class Table extends Component
 
     public function getPosts()
     {
-        $postDB = Post::query();
+        $postFormController = new PostFormController();
+        $postFormControllerReturn = $postFormController->index($this->state['search']);
 
-        if(!empty($this->state['search'])) {
-            $postDB->where('title', 'LIKE', "%{$this->state['search']}%");
+        if($postFormControllerReturn['status'] == 'success') {
+            $this->state['posts'] = $postFormControllerReturn['data'];
         }
-
-        $postDB = $postDB->get();
-        $this->state['posts'] = $postDB;
     }
 
     public function updatedStateSearch()
@@ -39,8 +38,10 @@ class Table extends Component
 
     public function deletePost($id)
     {
-        $postDB = Post::query()->findOrFail($id)->delete();
-        if($postDB) {
+        $postFormController = new PostFormController();
+        $postFormControllerReturn = $postFormController->delete($id);
+
+        if($postFormControllerReturn['status'] == 'success') {
             $this->emit('refreshTablePost');
         }
     }
@@ -48,7 +49,6 @@ class Table extends Component
     public function render()
     {
         $this->getPosts();
-
-        return view('livewire.posts.table');
+       return view('livewire.posts.table');
     }
 }

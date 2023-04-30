@@ -1,4 +1,5 @@
 <div>
+
     <div class="grid gap-y-5">
         <div class="grid grid-cols-12 lg:space-x-40">
             <div class="lg:col-span-6 col-span-12  space-y-5 order-2 lg:order-1">
@@ -38,9 +39,49 @@
 {{--                </div>--}}
 {{--            </div>--}}
 {{--        </div>--}}
+        <div>
+            <h1 class="font-semibold text-4xl text-center">My work experiences</h1>
+            <p class="font-semibold text-md text-center">________________________________</p>
+
+            <div class="mt-10">
+                <div class="relative mx-auto mt-12 flex w-full flex-col lg:w-2/3">
+                    <span class="left-2/5 absolute inset-y-0 ml-10 hidden w-0.5 bg-grey-40 md:block"></span>
+
+                    @foreach($response->xp as $itemXp)
+                        <div class="mt-8 flex flex-col text-center md:flex-row md:text-left">
+                            <div class="md:w-2/5">
+                                <div class="flex justify-center md:justify-start">
+                                    <a target="_blank" href="{{ $itemXp['url'] }}" class="shrink-0">
+                                        <img src="{{ $itemXp['image'] }}" class="h-auto w-48" alt="company logo">
+                                    </a>
+                                    <div class="relative ml-3 hidden w-full md:block">
+                                        <span class="absolute inset-x-0 top-1/2 h-0.5 -translate-y-1/2 transform bg-grey-70"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="md:w-3/5">
+                                <div class="relative flex md:pl-18">
+                                    <span class="absolute top-1 hidden h-4 w-4 rounded-full border-2 border-grey-40 bg-white md:block"></span>
+                                    <div class="mt-1 flex">
+                                        <i class="bx bxs-right-arrow hidden md:block"></i>
+                                        <div class="md:-mt-1 md:pl-8">
+                                            <span class="block font-body font-bold text-grey-40">{{ (new \App\Helpers\Helper)->formatDate($itemXp['dt_start']) }} - {{ (new \App\Helpers\Helper)->formatDate($itemXp['dt_end']) }}</span>
+                                            <span class="block pt-2 font-header text-xl font-bold uppercase ">{{ $itemXp['office'] }}</span>
+                                            <div class="pt-2">
+                                                <span class="block font-body">{{ $itemXp['description'] }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
         <div class="grid gap-y-5">
             <h1 class="text-xl font-sans font-semibold flex gap-x-2" >Recent<p class="text-[#1BC2EC]">Posts</p></h1>
-            <div class="grid gridcols-1 lg:grid-cols-4 space-x-10">
+            <div class="grid gridcols-1 lg:grid-cols-4 gap-5">
                 @forelse($response->post as $key => $itemPost)
                     <a class="bg-[#1E293B] px-2 py-3 rounded-lg space-y-5 hover:translate-y-2 cursor-pointer " href="{{ route('post', $itemPost['id']) }}">
                         <div class="">
@@ -51,7 +92,7 @@
                                 <h1 class="text-center">{{ $itemPost['title'] }}</h1>
                                 <p class="text-center text-xs">{{ (new \App\Helpers\Helper)->formatDate($itemPost['created_at']) }}</p>
                             </div>
-                            <p>Saiba como as aplicações web progressivas estão transformando a experiência do usuário na web, aproximando-a da de um aplicativo nativo, sem instalação.</p>
+                            <p class="line-clamp-2">{{ $itemPost['detail'] }}</p>
                         </div>
                     </a>
                 @empty
@@ -61,21 +102,22 @@
         </div>
         <div id="contact">
             <div class="flex justify-center items-center p-5">
-                <p class="text-4xl w-[20%] text-center border-b-4 border-blue-900"> Contate-me </p>
+                <p class="text-4xl  text-center border-b-4 border-blue-900"> Contate-me </p>
             </div>
             <div>
-                <form class="grid grid-cols-2 gap-5" action="">
-                    <label  for="">
+                <form class="grid md:grid-cols-2 gap-5" action="">
+                    <label class="col-span-2 md:col-span-1" for="name">
                         Nome
-                        <input type="text" required class="h-12 w-full shadow-md shadow-blue-300 text-black appearance-none rounded-lg bg-opacity-20 px-3 py-2">
+                        <input id="name" type="text" required class="h-12 w-full shadow-md shadow-blue-300 text-black appearance-none rounded-lg bg-opacity-20 px-3 py-2">
                     </label>
-                    <label for="">
+
+                    <label class="col-span-2 md:col-span-1" for="email">
                         E-mail
-                        <input type="email" required class="h-12 w-full shadow-md shadow-blue-300 text-black appearance-none rounded-lg bg-opacity-20  px-3 py-2">
+                        <input id="email" type="email" required class="h-12 w-full shadow-md shadow-blue-300 text-black appearance-none rounded-lg bg-opacity-20  px-3 py-2">
                     </label>
-                    <label class="col-span-2" for="">
+                    <label class="col-span-2 md:col-span-1" for="">
                         Menssagem
-                        <textarea class="w-full shadow-md shadow-blue-300 text-black appearance-none rounded-lg bg-opacity-20  px-3 py-2"  rows="10"></textarea>
+                        <textarea class="w-full shadow-md shadow-blue-300 text-black appearance-none rounded-lg bg-opacity-20  px-3 py-2" rows="10"></textarea>
                     </label>
                 </form>
             </div>

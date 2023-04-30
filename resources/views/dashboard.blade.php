@@ -65,34 +65,6 @@
                                 >
                                     List
                                 </a>
-                                <a
-                                    href="auth/register.html"
-                                    role="menuitem"
-                                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                                >
-                                    Register
-                                </a>
-                                <a
-                                    href="auth/login.html"
-                                    role="menuitem"
-                                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                                >
-                                    Login
-                                </a>
-                                <a
-                                    href="auth/forgot-password.html"
-                                    role="menuitem"
-                                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                                >
-                                    Forgot Password
-                                </a>
-                                <a
-                                    href="auth/reset-password.html"
-                                    role="menuitem"
-                                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                                >
-                                    Reset Password
-                                </a>
                             </div>
                         </div>
                         <div x-data="{ isActive: false, open: false}">
@@ -144,33 +116,56 @@
                                 >
                                     List
                                 </a>
+                            </div>
+                        </div>
+                        <div x-data="{ isActive: false, open: false}">
+                            <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
+                            <a
+                                @click="open = true"
+                                href="#"
+                                class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
+                                :class="{'bg-primary-100 dark:bg-primary': isActive || open}"
+                            >
+                                <span aria-hidden="true">
+                                    <svg
+                                        class="w-5 h-5"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                      <path
+                                          stroke-linecap="round"
+                                          stroke-linejoin="round"
+                                          stroke-width="2"
+                                          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                                      />
+                                    </svg>
+                                  </span>
+                                <span class="ml-2 text-sm"> Experiences </span>
+                                <span aria-hidden="true" class="ml-auto">
+                                    <!-- active class 'rotate-180' -->
+                                    <svg
+                                        class="w-4 h-4 transition-transform transform"
+                                        :class="{ 'rotate-180': open }"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </a>
+                            <div x-show="open" @click.outside="open = false" class="mt-2 space-y-2 px-7" role="menu" aria-label="Posts">
+                                <!-- active & hover classes 'text-gray-700 dark:text-light' -->
+                                <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
                                 <a
-                                    href="{{ route('paragraph') }}"
+                                    href="{{ route('xps') }}"
                                     role="menuitem"
                                     class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                                 >
-                                    Paragraph
-                                </a>
-                                <a
-                                    href="auth/login.html"
-                                    role="menuitem"
-                                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                                >
-                                    Login
-                                </a>
-                                <a
-                                    href="auth/forgot-password.html"
-                                    role="menuitem"
-                                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                                >
-                                    Forgot Password
-                                </a>
-                                <a
-                                    href="auth/reset-password.html"
-                                    role="menuitem"
-                                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                                >
-                                    Reset Password
+                                    List
                                 </a>
                             </div>
                         </div>
@@ -231,10 +226,10 @@
 
                         <!-- Brand -->
                         <a
-                            href="index.html"
+                            href=""
                             class="inline-block text-2xl font-bold tracking-wider uppercase text-primary-dark dark:text-light"
                         >
-                            K-WD
+                            DevTech
                         </a>
 
                         <!-- Mobile sub menu button -->
@@ -426,7 +421,7 @@
                                         Settings
                                     </a>
                                     <a
-                                        href="{{ url('logout') }}"
+                                        href="{{ route('logout') }}"
                                         role="menuitem"
                                         class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
                                     >
@@ -610,7 +605,7 @@
                                         Settings
                                     </a>
                                     <a
-                                        href="#"
+                                        href="{{ route('logout') }}"
                                         role="menuitem"
                                         class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
                                     >
@@ -1052,7 +1047,7 @@
                 <footer
                     class="fixed bottom-0 w-full flex items-center justify-between p-4 bg-white border-t dark:bg-darker dark:border-primary-darker"
                 >
-                    <div>K-WD &copy; 2021</div>
+                    <div>DevTech &copy; 2021</div>
                     <div>
                         Made by
                         <a href="https://github.com/Kamona-WD" target="_blank" class="text-blue-500 hover:underline"

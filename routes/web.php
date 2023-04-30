@@ -16,24 +16,23 @@ use App\Http\Middleware\RedirectIfAuthenticated;
 
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('logout',function(){
-        \Illuminate\Support\Facades\Auth::logout();
-        redirect()->route('/');
-    })->name('logout');
+    Route::get('logout',[\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
-    Route::view('/dash','dashboard')->name('dashboard');
+
     Route::group(['prefix' => 'dash'], function() {
+        Route::view('/','dashboard')->name('dashboard');
         Route::view('usuario', 'users.index')->name('users');
         Route::view('posts', 'posts.index')->name('posts');
         Route::view('paragraph', 'posts.paragraph.index')->name('paragraph');
-        Route::view('paragraph/post/{id?}', 'posts.paragraph.index')->name('paragraph');
         Route::view('paragraph/{id?}/edit', 'posts.paragraph.edit')->name('paragraph.edit');
         Route::view('paragraph/{idPost?}/create', 'posts.paragraph.edit')->name('paragraph.create');
+        Route::view('xps', 'xps.index')->name('xps');
 
     });
 });
 
-    Route::view('/login','auth.login')->name('login');
+Route::view('/login','auth.login')->name('login');
+
 Route::group(['middleware' => 'guest'], function() {
     Route::view('/register','auth.register')->name('register');
 });
@@ -42,6 +41,7 @@ Route::group(['middleware' => 'ip'], function() {
     Route::view('/','index')->name('/');
     Route::view('/post','posts')->name('post');
     Route::view('/post/{id}','post')->name('post');
+    Route::view('/pokemon','pokemon')->name('pokemon');
 });
 
 

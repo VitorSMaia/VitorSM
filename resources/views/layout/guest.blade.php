@@ -8,6 +8,7 @@
   @vite('resources/js/app.js')
   @livewireStyles
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-[#0F172A] text-white font-mono" x-data="{dark:false, light:true}" :class="dark ? 'dark' : ''">
     @yield('content')

@@ -2,16 +2,24 @@
 
 namespace App\Http\Livewire\Posts;
 
-use App\Models\Post;
 use App\Traits\ModalCenter;
 use Livewire\Component;
+use App\Http\Controllers\Posts\Form as PostFormController;
 
 class Form extends Component
 {
     use ModalCenter;
+
     public $idPost;
+
     public $state = [
         'image' => ''
+    ];
+
+    protected $rules = [
+        'state.title' => 'required|min:6',
+        'state.detail' => 'required',
+        'state.image' => 'required',
     ];
 
     public function mount($id = null) {
@@ -21,21 +29,29 @@ class Form extends Component
         }
     }
 
+
+
     public function getPost()
     {
-        return Post::findOrFail($this->idPost)->toArray();
+        $postFormController = new PostFormController;
+        $postFormControllerReturn = $postFormController->findPost($this->idPost);
+
+        if($postFormControllerReturn['status'] == 'success') {
+            return $postFormControllerReturn['data'];
+        }
     }
 
-    public function save()
+    public function updateOrCreate()
     {
-        if($this->idPost) {
-            Post::find($this->idPost)->update($this->state);
-        }else {
-            Post::create($this->state);
-        }
+        $validatedData = $this->validate()['state'];
 
-        $this->closeModal();
-        $this->emit('refreshTablePost');
+        $postFormController = new PostFormController();
+        $postFormControllerReturn = $postFormController->updateOrCreate($this->idPost, $validatedData);
+
+        if($postFormControllerReturn['status'] == 'success') {
+            $this->closeModal();
+            $this->emit('refreshTablePost');
+        }
     }
 
     public function render()

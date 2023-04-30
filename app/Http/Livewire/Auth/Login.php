@@ -29,7 +29,7 @@ class Login extends Component
         if ($auth) {
             $this->showLoading = true;
             sleep(1);
-            return redirect()->route('/');
+            return redirect()->route('dashboard');
         }
 
     }

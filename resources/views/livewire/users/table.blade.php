@@ -23,7 +23,7 @@
         </div>
     </div>
 
-    <div class="overflow-x-auto bg-white rounded-lg shadow overflow-y-auto relative min-h-max max-h-[460px]">
+    <div class="overflow-x-auto bg-white rounded-lg shadow overflow-y-auto relative max-h-[360px]">
         <table class="border-collapse table-auto w-full whitespace-no-wrap bg-white table-striped relative">
             <thead>
             <tr class="text-left">

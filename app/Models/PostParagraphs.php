@@ -16,4 +16,9 @@ class PostParagraphs extends Model
      */
 
      protected $fillable = ['post_id', 'content', 'order'];
+
+    public function post(): HasMany
+    {
+        return  $this->hasMany(Post::class, 'id', 'post_id')->orderBy('order', 'ASC');
+    }
 }

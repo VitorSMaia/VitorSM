@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://cdn.tailwindcss.com"></script>
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
     @livewireStyles
 </head>
-<body class="bg-[#0F172A] px-5 lg:px-60 space-y-10 text-white font-mono ">
+<body class="bg-[#0F172A] px-5 md:px-40  text-white font-mono ">
 <div class="flex justify-between items-center pt-5">
     <a href="/">VitorSM Blog</a>
     <div class="hidden lg:flex gap-x-5">

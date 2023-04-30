@@ -1,5 +1,5 @@
 <div>
-    <div class="mb-4 flex justify-between items-center">
+    <div class="mb-4 flex justify-between items-center ">
         <div class="flex-1 pr-4">
             <div class="relative md:w-2/3">
                 <input type="search" wire:model="state.search"
@@ -18,7 +18,7 @@
         </div>
         <div class="flex-1 pr-4">
             <div class="flex justify-end items-center">
-                <button wire:click="openModal('posts.form')" class="hover:bg-green-500 hover:-translate-y-1 active:translate-y-1 bg-opacity-80 border border-emerald-500 px-3 py-2 rounded-md bg-green-400">Register</button>
+                <button wire:click="openModal('xp.form')" class="hover:bg-green-500 hover:-translate-y-1 active:translate-y-1 bg-opacity-80 border border-emerald-500 px-3 py-2 rounded-md bg-green-400">Register</button>
             </div>
         </div>
     </div>
@@ -38,32 +38,29 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($this->state['posts'] as $itemPost)
+            @foreach($this->state['xps'] as $itemXp)
                 <tr>
                     <td class="border-dashed border-t border-gray-200 firstName">
-                        <span class="text-gray-700 px-6 py-3 flex items-center" >{{ $itemPost['title'] }}</span>
+                        <span class="text-gray-700 px-6 py-3 flex items-center" >{{ $itemXp['company'] }}</span>
                     </td>
+                    <td class="border-dashed border-t border-gray-200 firstName">
+                        <span class="text-gray-700 px-6 py-3 flex items-center" >{{ $itemXp['office'] }}</span>
+                    </td>
+                    <td class="border-dashed border-t border-gray-200 firstName">
+                        <span class="text-gray-700 px-6 py-3 flex items-center" >{{ $itemXp['description'] }}</span>
+                    </td>
+                    <td class="border-dashed border-t border-gray-200 firstName">
+                        <span class="text-gray-700 px-6 py-3 flex items-center" >{{ (new \App\Helpers\Helper)->formatDate($itemXp['dt_start']) }}</span>
+                    </td>
+                    <td class="border-dashed border-t border-gray-200 firstName">
+                        <span class="text-gray-700 px-6 py-3 flex items-center" >{{ (new \App\Helpers\Helper)->formatDate($itemXp['dt_end']) }}</span>
+                    </td>
+
 
                     <td class="border-dashed border-t border-gray-200">
                         <div class="flex items-center justify-start gap-x-5">
                             <div class="flex group">
-                                <a href="{{ route('paragraph', ['id' => $itemPost['id']]) }}" class="cursor-pointer text-gray-400 hover:text-yellow-500">
-                                <span class="flex flex-col items-center">
-                                    <!-- Icon -->
-                                    <span class="text-gray-500 group-hover:text-gray-700
-                                        transition-color duration-200 material-symbols-rounded">
-                                            edit
-                                    </span>
-
-                                    <!-- Text -->
-                                    <span class="text-xs transition-all duration-200">
-                                        paragraph
-                                    </span>
-                                </span>
-                                </a>
-                            </div>
-                            <div class="flex group">
-                                <a wire:click="openModal('posts.form', {{ $itemPost['id'] }})" class="cursor-pointer text-gray-400 hover:text-yellow-500">
+                                <a wire:click="openModal('xp.form', {{ $itemXp['id'] }})" class="cursor-pointer text-gray-400 hover:text-yellow-500">
                                 <span class="flex flex-col items-center">
                                     <!-- Icon -->
                                     <span class="text-gray-500 group-hover:text-gray-700
@@ -79,7 +76,7 @@
                                 </a>
                             </div>
                             <div class="flex group">
-                                <a wire:click="deletePost({{ $itemPost['id'] }})" class="cursor-pointer text-gray-400 hover:text-red-500">
+                                <a wire:click="deleteXp({{ $itemXp['id'] }})" class="cursor-pointer text-gray-400 hover:text-red-500">
                                 <span class="flex flex-col items-center">
                                     <!-- Icon -->
                                     <span class="text-gray-500 group-hover:text-gray-700
