@@ -2,11 +2,9 @@
 
 namespace App\Http\Livewire\Posts;
 
-use App\Models\User;
-use App\Models\Post;
+use App\Http\Controllers\PostController;
 use App\Traits\ModalCenter;
 use Livewire\Component;
-use App\Http\Controllers\Posts\Form as PostFormController;
 
 class Table extends Component
 {
@@ -23,7 +21,7 @@ class Table extends Component
 
     public function getPosts()
     {
-        $postFormController = new PostFormController();
+        $postFormController = new PostController();
         $postFormControllerReturn = $postFormController->index($this->state['search']);
 
         if($postFormControllerReturn['status'] == 'success') {
@@ -38,7 +36,7 @@ class Table extends Component
 
     public function deletePost($id)
     {
-        $postFormController = new PostFormController();
+        $postFormController = new PostController();
         $postFormControllerReturn = $postFormController->delete($id);
 
         if($postFormControllerReturn['status'] == 'success') {

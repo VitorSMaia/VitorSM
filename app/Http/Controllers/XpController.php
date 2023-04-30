@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 
 class XpController extends Controller
 {
-    public function index($search = null)
-    {
+    public function index($search = null) {
+
         $xpDB = new Xp();
 
         if(!empty($search)) {
@@ -23,8 +23,8 @@ class XpController extends Controller
             'data' => $xpDB
         ];
     }
-
     public function find($idXp = null) {
+
         $xpDB = new Xp();
 
         if($idXp) {
@@ -39,7 +39,6 @@ class XpController extends Controller
             'data' => $xpDB
         ];
     }
-
     public function updateOrCreate($idXp = null, $request) {
 
         $requestArray['company'] = $request['company'];
@@ -64,9 +63,8 @@ class XpController extends Controller
             'data' => $xpDB
         ];
     }
+    public function delete($idXp = null) {
 
-    public function delete  ($idXp = null)
-    {
         $xpDB = Xp::query()->findOrFail($idXp)->delete();
 
         if($xpDB) {
@@ -76,10 +74,9 @@ class XpController extends Controller
             ];
         }
     }
+    public function list() {
 
-    public function list()
-    {
-         $xpDB = Xp::query()->limit(3)->orderBy('dt_end', 'desc')->get()->toArray();
+        $xpDB = Xp::query()->limit(3)->orderBy('dt_end', 'desc')->get()->toArray();
 
         return [
             'status' => 'sucess',

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\XpController;
 use App\Models\Post;
 use Livewire\Component;
@@ -10,10 +11,12 @@ use StdClass;
 class Index extends Component
 {
     public function getPost() {
-        $postDB = new Post;
-        $postDB = $postDB->query()->with('paragraph')->limit(4)->get();
+        $postController = new PostController();
+        $postControllerReturn = $postController->list();
 
-        return $postDB;
+        if($postControllerReturn['status'] === 'sucess') {
+            return $postControllerReturn['data'];
+        }
     }
 
     public function getXp() {

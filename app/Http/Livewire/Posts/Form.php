@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire\Posts;
 
+use App\Http\Controllers\PostController as PostFormController;
 use App\Traits\ModalCenter;
 use Livewire\Component;
-use App\Http\Controllers\Posts\Form as PostFormController;
 
 class Form extends Component
 {
@@ -29,12 +29,10 @@ class Form extends Component
         }
     }
 
-
-
     public function getPost()
     {
         $postFormController = new PostFormController;
-        $postFormControllerReturn = $postFormController->findPost($this->idPost);
+        $postFormControllerReturn = $postFormController->find($this->idPost);
 
         if($postFormControllerReturn['status'] == 'success') {
             return $postFormControllerReturn['data'];

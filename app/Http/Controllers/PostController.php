@@ -1,23 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Posts;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\PostRequest;
 use App\Models\Post;
-use Illuminate\Http\Request;
+use App\Models\PostParagraphs;
 
-class Form extends Controller
+class PostController extends Controller
 {
-    public function index($search = '')
-    {
-        $postDB = Post::query();
+    public function index($search = null) {
+
+        $postDB = Post::query()->select('title', 'image', 'id');
 
         if(!empty($search)) {
-            $postDB->where('title', 'LIKE', "%$search%");
+            $postDB = $postDB->query()->where('title', 'LIKE', "%$search%");
         }
 
-        $postDB = $postDB->select('title', 'image', 'id')->get();
+        $postDB = $postDB->get();
 
         return [
             'status' => 'success',
@@ -25,8 +23,8 @@ class Form extends Controller
             'data' => $postDB
         ];
     }
+    public function find($idPost = null) {
 
-    public function findPost($idPost = null) {
         $postDB = new Post();
 
         if($idPost) {
@@ -41,16 +39,11 @@ class Form extends Controller
             'data' => $postDB
         ];
     }
-
     public function updateOrCreate($idPost = null, $request) {
-
-        $postRequest = new PostRequest();
 
         $requestArray['title'] = $request['title'];
         $requestArray['detail'] = $request['detail'];
         $requestArray['image'] = $request['image'];
-
-        $postRequestReturn = $postRequest->validate($requestArray);
 
         $postDB = new Post();
 
@@ -66,15 +59,25 @@ class Form extends Controller
             'data' => $postDB
         ];
     }
+    public function delete($idPost = null) {
 
-    public function delete  ($idPost = null)
-    {
+        PostParagraphs::query()->where('post_id', $idPost)->delete();
         $postDB = Post::query()->findOrFail($idPost)->delete();
+
         if($postDB) {
             return [
                 'status' => 'success',
                 'code' => 200,
             ];
         }
+    }
+    public function list() {
+        $postDB = Post::query()->limit(3)->orderBy('id', 'desc')->get()->toArray();
+
+        return [
+            'status' => 'sucess',
+            'code' => 200,
+            'data' => $postDB
+        ];
     }
 }

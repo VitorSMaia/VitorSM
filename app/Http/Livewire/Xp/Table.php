@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Xp;
 
-use App\Http\Controllers\Posts\Form as PostFormController;
 use App\Http\Controllers\XpController;
 use App\Traits\ModalCenter;
 use Livewire\Component;

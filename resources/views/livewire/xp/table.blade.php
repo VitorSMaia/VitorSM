@@ -1,5 +1,5 @@
 <div>
-    <div class="mb-4 flex justify-between items-center ">
+    <div class="mb-4 flex justify-between items-center">
         <div class="flex-1 pr-4">
             <div class="relative md:w-2/3">
                 <input type="search" wire:model="state.search"
