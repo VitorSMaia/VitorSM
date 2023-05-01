@@ -2,10 +2,9 @@
 
 namespace App\Http\Livewire\Users;
 
-use App\Models\User;
+use App\Http\Controllers\UserController;
 use App\Traits\ModalCenter;
 use Livewire\Component;
-use StdClass;
 
 
 class Table extends Component
@@ -24,14 +23,13 @@ class Table extends Component
 
     public function getUsers()
     {
-        $userDB = User::query();
+        $userController = new UserController();
 
-        if(!empty($this->state['search'])) {
-            $userDB->where('name', 'LIKE', "%{$this->state['search']}%");
+        $userControllerReturn = $userController->index($this->state['search']);
+
+        if($userControllerReturn['status'] === 'success') {
+            $this->state['users'] = $userControllerReturn['data'];
         }
-
-        $userDB = $userDB->get();
-        $this->state['users'] = $userDB;
     }
 
     public function updatedStateSearch()
@@ -41,8 +39,11 @@ class Table extends Component
 
     public function deleteUser($id)
     {
-        $userDB = User::query()->findOrFail($id)->delete();
-        if($userDB) {
+        $userController = new UserController();
+
+        $userControllerReturn = $userController->delete($id);
+
+        if($userControllerReturn['status'] === 'success') {
             $this->emit('refreshTableUser');
         }
     }

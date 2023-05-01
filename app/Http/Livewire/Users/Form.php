@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Users;
 
+use App\Http\Controllers\UserController;
 use App\Models\User;
 use App\Traits\ModalCenter;
 use Livewire\Component;
@@ -13,6 +14,13 @@ class Form extends Component
     public $idUser;
     public $state;
 
+
+    protected $rules = [
+        'state.name' => 'required',
+        'state.email' => 'required',
+        'state.password' => 'required|min:2',
+    ];
+
     public function mount($id = null) {
         if($id) {
             $this->idUser = $id;
@@ -20,20 +28,23 @@ class Form extends Component
         }
     }
 
+
     public function getUser()
     {
         return User::findOrFail($this->idUser)->toArray();
     }
 
-    public function save()
+    public function updateOrCreate()
     {
-        if($this->idUser) {
-            User::find($this->idUser)->update($this->state);
-        }else {
-            User::create($this->state);
+        $validatedData = $this->validate()['state'];
+
+        $userController = new UserController();
+        $userControllerReturn = $userController->updateOrCreate($this->idUser, $validatedData);
+
+        if($userControllerReturn['status'] === 'success') {
+            $this->closeModal();
+            $this->emit('refreshTableUser');
         }
-        $this->closeModal();
-        $this->emit('refreshTableUser');
     }
 
     public function render()

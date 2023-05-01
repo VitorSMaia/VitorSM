@@ -27,12 +27,7 @@
         <table class="border-collapse table-auto w-full whitespace-no-wrap bg-white table-striped relative">
             <thead>
             <tr class="text-left">
-                <th class="py-2 px-3 sticky top-0 border-b border-gray-200 bg-gray-100">
-                    <label
-                        class="text-teal-500 inline-flex justify-between items-center hover:bg-gray-200 px-2 py-2 rounded-lg cursor-pointer">
-                        <input type="checkbox" class="form-checkbox focus:outline-none focus:shadow-outline" @click="selectAllCheckbox($event);">
-                    </label>
-                </th>
+
                 @foreach(array_keys($this->state['head']) as $itemHeading)
                     <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">
                         {{ $itemHeading}}
@@ -46,13 +41,6 @@
             <tbody>
             @foreach($this->state['users'] as $itemUser)
                 <tr>
-                    <td class="border-dashed border-t border-gray-200 px-3">
-                        <label
-                            class="text-teal-500 inline-flex justify-between items-center hover:bg-gray-200 px-2 py-2 rounded-lg cursor-pointer">
-                            <input type="checkbox" class="form-checkbox rowCheckbox focus:outline-none focus:shadow-outline" :name="user.userId"
-                                   @click="getRowDetail($event, user.userId)">
-                        </label>
-                    </td>
                     <td class="border-dashed border-t border-gray-200 firstName">
                         <span class="text-gray-700 px-6 py-3 flex items-center" >{{ $itemUser['name'] }}</span>
                     </td>
