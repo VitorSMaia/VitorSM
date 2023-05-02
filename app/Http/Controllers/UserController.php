@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserValidate;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -39,15 +40,13 @@ class UserController extends Controller
             'data' => $userDB
         ];
     }
-    public function updateOrCreate($idUser = null, $request) {
-
-        $requestArray['company'] = $request['company'];
-        $requestArray['image'] = $request['image'];
-        $requestArray['url'] = $request['url'];
-        $requestArray['office'] = $request['office'];
-        $requestArray['description'] = $request['description'];
-        $requestArray['dt_start'] = $request['dt_start'];
-        $requestArray['dt_end'] = $request['dt_end'];
+    public function updateOrCreate(UserValidate $request) {
+//        $userValidate = new UserValidate();
+//        $userValidate->
+        dd($request->validated());
+        $requestArray['name'] = $request['name'];
+        $requestArray['email'] = $request['email'];
+        $requestArray['password'] = $request['password'];
 
         $userDB = new User();
 

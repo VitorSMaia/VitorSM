@@ -22,7 +22,7 @@
             {{--                <a href="{{ Auth::logout() }}">Sair</a>--}}
         @else
             <a href="{{ route('login') }}">Login</a>
-            <a href="{{ route('register') }}">Cadastre-se</a>
+{{--            <a href="{{ route('register') }}">Cadastre-se</a>--}}
         @endif
 
     </div>

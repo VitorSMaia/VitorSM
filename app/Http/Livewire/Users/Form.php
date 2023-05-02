@@ -39,7 +39,7 @@ class Form extends Component
         $validatedData = $this->validate()['state'];
 
         $userController = new UserController();
-        $userControllerReturn = $userController->updateOrCreate($this->idUser, $validatedData);
+        $userControllerReturn = $userController->updateOrCreate($validatedData);
 
         if($userControllerReturn['status'] === 'success') {
             $this->closeModal();
