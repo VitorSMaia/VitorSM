@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UserValidate;
+use Illuminate\Validation\Rules\Password;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -40,20 +41,31 @@ class UserController extends Controller
             'data' => $userDB
         ];
     }
-    public function updateOrCreate(UserValidate $request) {
-//        $userValidate = new UserValidate();
-//        $userValidate->
-        dd($request->validated());
-        $requestArray['name'] = $request['name'];
-        $requestArray['email'] = $request['email'];
-        $requestArray['password'] = $request['password'];
+    public function updateOrCreate($idUser = null, $request) {
 
         $userDB = new User();
 
+        $ValidatorRequest = Validator::make($request, [
+            'name' => 'required',
+            'email' => ['required','email', Rule::unique('users')->ignore($idUser)],
+            'password' => [
+                Rule::requiredIf(function () use ($idUser) {
+                    return is_null($idUser);
+                }),
+                'confirmed',
+                Password::min(8)
+                    ->mixedCase()
+                    ->letters()
+                    ->numbers()
+                    ->symbols()
+                    ->uncompromised(),
+            ]
+        ])->validate();
+
         if($idUser) {
-            $userDB = $userDB->find($idUser)->update($requestArray);
+            $userDB = $userDB->find($idUser)->update($ValidatorRequest);
         }else {
-            $userDB = $userDB->create($requestArray);
+            $userDB = $userDB->create($ValidatorRequest);
         }
 
         return [

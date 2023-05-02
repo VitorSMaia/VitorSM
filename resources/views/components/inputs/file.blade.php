@@ -23,5 +23,5 @@
 
         <input wire:model.defer="state.{{ $model }}" id="{{ $model }}" type="file" class="hidden" />
     </label>
-    @error("state." . $model ) <span class="error">{{ $message }}</span> @enderror
+    @error($model) <span class="error">{{ $message }}</span> @enderror
 </div>

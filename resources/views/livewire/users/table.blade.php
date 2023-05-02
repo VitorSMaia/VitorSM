@@ -45,7 +45,7 @@
                         <span class="text-gray-700 px-6 py-3 flex items-center" >{{ $itemUser['name'] }}</span>
                     </td>
                     <td class="border-dashed border-t border-gray-200 emailAddress">
-								<span class="text-gray-700 px-6 py-3 flex items-center">{{ $itemUser['email'] }}</span>
+                        <span class="text-gray-700 px-6 py-3 flex items-center">{{ $itemUser['email'] }}</span>
                     </td>
 
                     <td class="border-dashed border-t border-gray-200">
@@ -56,7 +56,7 @@
                                     <!-- Icon -->
                                     <span class="text-gray-500 group-hover:text-gray-700
                                         transition-color duration-200 material-symbols-rounded">
-                                            edit
+                                        edit
                                     </span>
 
                                     <!-- Text -->
@@ -66,13 +66,14 @@
                                 </span>
                                 </a>
                             </div>
+                            @if(Auth::id() !== $itemUser['id'])
                             <div class="flex group">
                                 <a wire:click="deleteUser({{ $itemUser['id'] }})" class="cursor-pointer text-gray-400 hover:text-red-500">
                                 <span class="flex flex-col items-center">
                                     <!-- Icon -->
                                     <span class="text-gray-500 group-hover:text-gray-700
                                         transition-color duration-200 material-symbols-rounded">
-                                            delete
+                                        delete
                                     </span>
 
                                     <!-- Text -->
@@ -82,6 +83,7 @@
                                 </span>
                                 </a>
                             </div>
+                            @endif
                         </div>
                     </td>
                 </tr>
