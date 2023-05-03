@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="lg:col-span-6 col-span-12 order-1 lg:order-2">
-                <img class="" src="https://d1unuvan7ts7ur.cloudfront.net/0x826/a014fb64-2cf2-4382-bb75-77d808d5c1f4/01GWFA7AZ53Q0HKDT5PF8B08RC" alt="">
+                <img class="" src="https://d1unuvan7ts7ur.cloudfront.net/0x826/a014fb64-2cf2-4382-bb75-77d808d5c1f4/01GWFA7AZ53Q0HKDT5PF8B08RC" alt="img-profile">
             </div>
         </div>
 {{--        <div class="grid gap-y-5">--}}
