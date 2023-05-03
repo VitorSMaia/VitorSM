@@ -12,30 +12,16 @@ class Form extends Component
 
     public $idXp;
 
-    public $state = [
-        'image' => ''
-    ];
+    public $state = [];
 
-    protected $rules = [
-        'state.company' => 'required',
-        'state.url' => 'required',
-        'state.office' => 'required|min:6',
-        'state.description' => 'required',
-        'state.image' => 'required',
-        'state.dt_start' => 'required',
-        'state.dt_end' => 'required',
-    ];
-
-    public function mount($id = null)
-    {
+    public function mount($id = null) {
         if($id) {
             $this->idXp = $id;
             $this->state = $this->getXp();
         }
     }
 
-    public function getXp()
-    {
+    public function getXp() {
         $xpController = new XpController();
         $xpControllerReturn = $xpController->find($this->idXp);
 
@@ -44,21 +30,19 @@ class Form extends Component
         }
     }
 
-    public function updateOrCreate()
-    {
-        $validatedData = $this->validate()['state'];
+    public function updateOrCreate() {
+        $request = $this->state;
 
         $xpController = new XpController();
-        $xpControllerReturn = $xpController->updateOrCreate($this->idXp, $validatedData);
+        $xpControllerReturn = $xpController->updateOrCreate($this->idXp, $request);
 
-        if($xpControllerReturn['status'] == 'success') {
+        if($xpControllerReturn['status'] === 'success') {
             $this->closeModal();
             $this->emit('refreshTableXp');
         }
     }
 
-    public function render()
-    {
+    public function render() {
         return view('livewire.xp.form');
     }
 }

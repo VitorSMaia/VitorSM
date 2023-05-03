@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Posts;
 
-use App\Http\Controllers\PostController as PostFormController;
+use App\Http\Controllers\PostController;
 use App\Traits\ModalCenter;
 use Livewire\Component;
 
@@ -12,15 +12,7 @@ class Form extends Component
 
     public $idPost;
 
-    public $state = [
-        'image' => ''
-    ];
-
-    protected $rules = [
-        'state.title' => 'required|min:6',
-        'state.detail' => 'required',
-        'state.image' => 'required',
-    ];
+    public $state = [];
 
     public function mount($id = null) {
         if($id) {
@@ -29,31 +21,28 @@ class Form extends Component
         }
     }
 
-    public function getPost()
-    {
-        $postFormController = new PostFormController;
-        $postFormControllerReturn = $postFormController->find($this->idPost);
+    public function getPost() {
+        $postController = new PostController;
+        $postControllerReturn = $postController->find($this->idPost);
 
-        if($postFormControllerReturn['status'] == 'success') {
-            return $postFormControllerReturn['data'];
+        if($postControllerReturn['status'] === 'success') {
+            return $postControllerReturn['data'];
         }
     }
 
-    public function updateOrCreate()
-    {
-        $validatedData = $this->validate()['state'];
+    public function updateOrCreate() {
+        $request = $this->state;
 
-        $postFormController = new PostFormController();
-        $postFormControllerReturn = $postFormController->updateOrCreate($this->idPost, $validatedData);
+        $postController = new PostController();
+        $postControllerReturn = $postController->updateOrCreate($this->idPost, $request);
 
-        if($postFormControllerReturn['status'] == 'success') {
+        if($postControllerReturn['status'] == 'success') {
             $this->closeModal();
             $this->emit('refreshTablePost');
         }
     }
 
-    public function render()
-    {
+    public function render() {
         return view('livewire.posts.form');
     }
 }

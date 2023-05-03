@@ -6,7 +6,7 @@ use App\Http\Controllers\XpController;
 use App\Traits\ModalCenter;
 use Livewire\Component;
 
-class Table extends Component
+class   Table extends Component
 {
     use ModalCenter;
 

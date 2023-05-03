@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Http\Controllers\PostController;
 use Livewire\Component;
 use App\Models\PostParagraphs;
 use StdClass;
@@ -11,20 +12,22 @@ class Post extends Component
 {
     public $postID;
 
-    public function mount($postID = null) {
-        if($postID) {
-            $this->postID = $postID;
+    public function mount($id = null) {
+        if($id) {
+            $this->postID = $id;
         }else {
             return 404;
         }
-
     }
 
     public function getParagraphs() {
-        $postPragraphsDB = new PostParagraphs;
-        $postPragraphsDB = $postPragraphsDB->query()->where('post_id', $this->postID)->orderBy('order', 'ASC')->get();
 
-        return $postPragraphsDB;
+        $postController = new PostController();
+        $postControllerReturn = $postController->findPost($this->postID);
+
+        if($postControllerReturn) {
+            return $postControllerReturn['data'];
+        }
     }
 
     public function render()

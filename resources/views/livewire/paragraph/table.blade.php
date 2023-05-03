@@ -16,13 +16,11 @@
                 </div>
             </div>
         </div>
-        @if(isset(Request::route()->parameters['id']))
         <div class="flex-1 pr-4">
             <div class="flex justify-end items-center">
-                <a href="{{ route('paragraph.create', ['idPost' => $this->idPost]) }}" class="hover:bg-green-500 hover:-translate-y-1 active:translate-y-1 bg-opacity-80 border border-emerald-500 px-3 py-2 rounded-md bg-green-400">Register</a>
+                <a href="{{ route('paragraph.create', ['id' => $this->idPost]) }}" class="hover:bg-green-500 hover:-translate-y-1 active:translate-y-1 bg-opacity-80 border border-emerald-500 px-3 py-2 rounded-md bg-green-400">Register</a>
             </div>
         </div>
-        @endif
     </div>
 
     <div class="overflow-x-auto bg-white rounded-lg shadow overflow-y-auto relative min-h-max max-h-[460px]">
@@ -49,7 +47,7 @@
                     <td class="border-dashed border-t border-gray-200">
                         <div class="flex items-center justify-start gap-x-5">
                             <div class="flex group">
-                                <a href="{{ route('paragraph.edit', ['id' => $itemParagraph['id']]) }}" class="cursor-pointer text-gray-400 hover:text-yellow-500">
+                                <a href="{{ route('paragraph.edit', ['id' => $itemParagraph['post_id'], 'idParagraph' => $itemParagraph['id']]) }}" class="cursor-pointer text-gray-400 hover:text-yellow-500">
                                 <span class="flex flex-col items-center">
                                     <!-- Icon -->
                                     <span class="text-gray-500 group-hover:text-gray-700

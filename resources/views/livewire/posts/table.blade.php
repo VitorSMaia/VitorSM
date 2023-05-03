@@ -47,7 +47,7 @@
                     <td class="border-dashed border-t border-gray-200">
                         <div class="flex items-center justify-start gap-x-5">
                             <div class="flex group">
-                                <a href="{{ route('paragraph', ['id' => $itemPost['id']]) }}" class="cursor-pointer text-gray-400 hover:text-yellow-500">
+                                <a href="{{ route('post.paragraph', ['id' => $itemPost['id']]) }}" class="cursor-pointer text-gray-400 hover:text-yellow-500">
                                 <span class="flex flex-col items-center">
                                     <!-- Icon -->
                                     <span class="text-gray-500 group-hover:text-gray-700

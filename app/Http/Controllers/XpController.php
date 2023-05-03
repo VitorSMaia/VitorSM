@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Xp;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Password;
 
 class XpController extends Controller
 {
@@ -41,20 +44,23 @@ class XpController extends Controller
     }
     public function updateOrCreate($idXp = null, $request) {
 
-        $requestArray['company'] = $request['company'];
-        $requestArray['image'] = $request['image'];
-        $requestArray['url'] = $request['url'];
-        $requestArray['office'] = $request['office'];
-        $requestArray['description'] = $request['description'];
-        $requestArray['dt_start'] = $request['dt_start'];
-        $requestArray['dt_end'] = $request['dt_end'];
+        $ValidatorRequest = Validator::make($request, [
+            'company' => 'required',
+            'image' => 'required',
+            'url' => 'required',
+            'office' => 'required',
+            'description' => 'required',
+            'dt_start' => 'required',
+            'dt_end' => 'required|after:dt_start',
 
-        $xpDB = new Xp();
+        ])->validate();
+
+         $xpDB = new Xp();
 
         if($idXp) {
-            $xpDB = $xpDB->find($idXp)->update($requestArray);
+            $xpDB = $xpDB->find($idXp)->update($ValidatorRequest);
         }else {
-            $xpDB = $xpDB->create($requestArray);
+            $xpDB = $xpDB->create($ValidatorRequest);
         }
 
         return [

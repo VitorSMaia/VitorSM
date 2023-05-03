@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\PostParagraphs;
+use Illuminate\Support\Facades\Validator;
+use Termwind\Components\Paragraph;
 
 class PostController extends Controller
 {
@@ -41,16 +43,18 @@ class PostController extends Controller
     }
     public function updateOrCreate($idPost = null, $request) {
 
-        $requestArray['title'] = $request['title'];
-        $requestArray['detail'] = $request['detail'];
-        $requestArray['image'] = $request['image'];
+        $validatorRequest = Validator::make($request, [
+            'title' => 'required',
+            'detail' => 'required',
+            'image' => 'required',
+        ])->validate();
 
         $postDB = new Post();
 
         if($idPost) {
-            $postDB = $postDB->find($idPost)->update($requestArray);
+            $postDB = $postDB->find($idPost)->update($validatorRequest);
         }else {
-            $postDB = $postDB->create($requestArray);
+            $postDB = $postDB->create($validatorRequest);
         }
 
         return [
@@ -76,6 +80,78 @@ class PostController extends Controller
 
         return [
             'status' => 'sucess',
+            'code' => 200,
+            'data' => $postDB
+        ];
+    }
+    public function findPost($id = null) {
+
+        $paragraphDB = PostParagraphs::query()
+            ->where('post_id', $id)->orderBy('order', 'ASC')
+            ->get()->toArray();
+
+        return [
+            'status' => 'success',
+            'code' => 200,
+            'data' => $paragraphDB
+        ];
+    }
+
+    public function indexParagraph($search = '', $idPost = null) {
+
+        $paragraphDB = PostParagraphs::query()->where('post_id', $idPost);
+
+        if(!empty($search)) {
+            $paragraphDB = $paragraphDB->query()->where('title', 'LIKE', "%$search%");
+        }
+
+        $paragraphDB = $paragraphDB->get();
+
+        return [
+            'status' => 'success',
+            'code' => 200,
+            'data' => $paragraphDB
+        ];
+    }
+
+    public function findParagraph($id = null) {
+
+        $paragraphDB = PostParagraphs::query()->findOrFail($id)->toArray();
+
+        return [
+            'status' => 'success',
+            'code' => 200,
+            'data' => $paragraphDB
+        ];
+    }
+
+    public function deleteParagraph($id)
+    {
+        $postParagraphsDB = PostParagraphs::query()->findOrFail($id)->delete();
+
+        return [
+            'status' => 'success',
+            'code' => 200,
+            'data' => $postParagraphsDB
+        ];
+    }
+
+    public function updateOrCreateParagraph($id = null, $request) {
+
+        $requestArray['title'] = $request['title'];
+        $requestArray['detail'] = $request['detail'];
+        $requestArray['image'] = $request['image'];
+
+        $postDB = new Post();
+
+        if($idPost) {
+            $postDB = $postDB->find($idPost)->update($requestArray);
+        }else {
+            $postDB = $postDB->create($requestArray);
+        }
+
+        return [
+            'status' => 'success',
             'code' => 200,
             'data' => $postDB
         ];

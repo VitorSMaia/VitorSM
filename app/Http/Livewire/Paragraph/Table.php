@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Paragraph;
 
+use App\Http\Controllers\PostController;
 use App\Models\Post;
 use App\Models\PostParagraphs;
 use App\Traits\ModalCenter;
@@ -26,22 +27,19 @@ class Table extends Component
     {
         if($id) {
             $this->idPost = $id;
+            $this->getPostParagraphs();
         }
     }
 
     public function getPostParagraphs()
     {
-        $postParagraphsDB = PostParagraphs::query();
+        $postController = new PostController();
+        $postControllerReturn = $postController->indexParagraph($this->state['search'], $this->idPost);
 
-        if(!empty($this->state['search'])) {
-            $postParagraphsDB->where('content', 'LIKE', "%{$this->state['search']}%");
-        }
-        if($this->idPost) {
-            $postParagraphsDB->where('post_id',$this->idPost);
+        if($postControllerReturn['status'] === 'success') {
+            $this->state['paragraph'] = $postControllerReturn['data'];
         }
 
-        $postParagraphsDB = $postParagraphsDB->get();
-        $this->state['paragraph'] = $postParagraphsDB;
     }
 
     public function updatedStateSearch()
@@ -51,16 +49,18 @@ class Table extends Component
 
     public function deletePost($id)
     {
-        $postParagraphsDB = PostParagraphs::query()->findOrFail($id)->delete();
-        if($postParagraphsDB) {
-            $this->emit('refreshTablePostParagraph');
-        }
+        $postController = new PostController();
+        $postControllerReturn = $postController->deleteParagraph($id);
+
+        $this->emit('refreshTablePostParagraph');
+//        if($postControllerReturn['status'] === 'success') {
+//            $this->getPostParagraphs();
+//        }
     }
 
     public function render()
     {
         $this->getPostParagraphs();
-
         return view('livewire.paragraph.table');
     }
 }
