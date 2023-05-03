@@ -102,9 +102,9 @@
             </a> --}}
 
             <!-- Register link -->
-            <div class="text-sm text-gray-600">
-              Don't have an account yet? <a href="{{ route('register')}}" class="text-blue-600 hover:underline">Register</a>
-            </div>
+{{--            <div class="text-sm text-gray-600">--}}
+{{--              Don't have an account yet? <a href="{{ route('register')}}" class="text-blue-600 hover:underline">Register</a>--}}
+{{--            </div>--}}
           </div>
         </main>
       </div>

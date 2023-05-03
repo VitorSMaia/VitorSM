@@ -102,7 +102,7 @@
         </div>
         <div id="contact" class="mb-5">
             <div class="flex justify-center items-center p-5">
-                <p class="text-4xl  text-center border-b-4 border-blue-900"> Contate-me </p>
+                <p class="text-4xl  text-center border-b-4 border-blue-900"> Contact me </p>
             </div>
             <div>
                 <form class="grid md:grid-cols-2 gap-5" action="">
