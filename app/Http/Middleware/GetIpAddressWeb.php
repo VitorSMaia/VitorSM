@@ -28,7 +28,9 @@ class GetIpAddressWeb
         $data['latitude'] = $dataLocation->latitude;
         $data['longitude'] = $dataLocation->longitude;
 
-        GetIpAddress::query()->create($data);
+        GetIpAddress::query()->updateOrCreate([
+            'ip' => $data['ip']
+        ],$data);
         return $next($request);
     }
 }

@@ -14,8 +14,10 @@ use App\Http\Middleware\RedirectIfAuthenticated;
 |
 */
 
-Route::view('/','index')->name('/');
-Route::view('/post/{id?}','post')->name('post');
+Route::group(['middleware' => 'ip'], function() {
+    Route::view('/', 'index')->name('/');
+    Route::view('/post/{id?}', 'post')->name('post');
+});
 
 Route::group(['middleware' => 'guest'], function() {
     Route::view('/login','auth.login')->name('login');
@@ -31,6 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::view('post/{id?}/paragraph', 'posts.paragraph.index')->name('post.paragraph');
         Route::view('post/{id?}/paragraph/create', 'posts.paragraph.edit')->name('paragraph.create');
         Route::view('post/{id?}/paragraph/edit/{idParagraph?}', 'posts.paragraph.edit')->name('paragraph.edit');
+        Route::view('access', 'access.index')->name('access');
 
         Route::view('xps', 'xps.index')->name('xps');
     });
