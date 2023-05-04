@@ -4,6 +4,43 @@
 
 @layer components {
 
+    .test {
+        background-color: #190759;
+        background-color:#010A26
+        #022859
+        #227CF2
+        #F2F2F2
+    }
+
+
+
+    .bg-darth-torus {
+        @apply bg-[#190759]
+    }
+
+    .bg-void {
+        @apply bg-[#010A26]
+    }
+
+    .bg-clarinet {
+        @apply bg-[#022859]
+    }
+
+    .bg-clear-blue {
+        @apply bg-[#227CF2]
+    }
+
+    .bg-bleached-silk {
+        @apply bg-[#F2F2F2]
+    }
+
+    .text-bleached-silk {
+        @apply text-[#F2F2F2]
+    }
+    .text-void {
+        @apply text-[#010A26]
+    }
+
     [x-cloak] {
         display: none;
     }
