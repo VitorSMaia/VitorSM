@@ -11,7 +11,7 @@ class Posts extends Component
     public function getPost() {
         $postDB = new Post;
         $postDB = $postDB->query()->limit(4)->get();
-dd($postDB);
+
         return $postDB;
     }
     public function render()

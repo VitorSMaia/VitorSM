@@ -11,7 +11,7 @@
                             <h1 class="text-center">{{ $itemPost['title'] }}</h1>
                             <p class="text-center text-xs">{{ (new \App\Helpers\Helper)->formatDate($itemPost['created_at']) }}</p>
                         </div>
-                        <p>Saiba como as aplicações web progressivas estão transformando a experiência do usuário na web, aproximando-a da de um aplicativo nativo, sem instalação.</p>
+                        <p>{{ $itemPost['detail'] }}</p>
                     </div>
                 </a>
             @empty

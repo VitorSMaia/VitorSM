@@ -12,7 +12,9 @@ class Form extends Component
 
     public $idPost;
 
-    public $state = [];
+    public $state = [
+        'status' => 'Inativo'
+    ];
 
     public function mount($id = null) {
         if($id) {

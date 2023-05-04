@@ -16,7 +16,7 @@ class Post extends Model
      * @var array
      */
 
-    protected $fillable = ['title', 'detail', 'image'];
+    protected $fillable = ['title', 'detail', 'image', 'status'];
 
 
     public function paragraph(): HasMany

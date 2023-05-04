@@ -46,6 +46,7 @@ class PostController extends Controller
         $validatorRequest = Validator::make($request, [
             'title' => 'required',
             'detail' => 'required',
+            'status' => 'required',
             'image' => 'required',
         ])->validate();
 
@@ -76,7 +77,7 @@ class PostController extends Controller
         }
     }
     public function list() {
-        $postDB = Post::query()->limit(3)->orderBy('id', 'desc')->get()->toArray();
+        $postDB = Post::query()->where('status', 'Ativo')->limit(3)->orderBy('id', 'desc')->get()->toArray();
 
         return [
             'status' => 'sucess',

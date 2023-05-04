@@ -2,14 +2,19 @@
 
 namespace App\Http\Livewire;
 
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\XpController;
+use App\Mail\SendContact;
 use App\Models\Post;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 use StdClass;
 
 class Index extends Component
 {
+    public $state = [];
+
     public function getPost() {
         $postController = new PostController();
         $postControllerReturn = $postController->list();
@@ -26,6 +31,19 @@ class Index extends Component
         if($xpControllerReturn['status'] === 'sucess') {
             return $xpControllerReturn['data'];
         }
+    }
+
+    public function sendContact()
+    {
+        $request = $this->state;
+        $indexController = new IndexController();
+
+        $indexControllerReturn = $indexController->sendContact($request);
+
+        if($indexControllerReturn['status'] === 'success') {
+            $this->reset();
+        }
+
     }
 
 

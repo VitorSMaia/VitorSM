@@ -2,7 +2,11 @@
     <h1 class="text-gray-800 font-lg font-bold tracking-normal leading-tight mb-4">{{ $idPost ? 'Edit' : 'Register' }} Post Details</h1>
 
     <form wire:submit.prevent="updateOrCreate" class="grid grid-cols-12 gap-5">
-        <x-inputs.input class="col-span-6" model="title" label="Title"/>
+        <x-inputs.input class="col-span-12" model="title" label="Title"/>
+        <x-inputs.select class="col-span-6" model="status" label="Status">
+            <option value="Ativo">Ativo</option>
+            <option value="Inativo">Inativo</option>
+        </x-inputs.select>
         <x-inputs.input class="col-span-6" model="detail" label="Detail"/>
         <x-inputs.input class="col-span-12" model="image" label="Image"/>
 

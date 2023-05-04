@@ -1,5 +1,4 @@
 <div>
-
     <div class="grid gap-y-5">
         <div class="grid grid-cols-12 lg:space-x-40">
             <div class="lg:col-span-6 col-span-12  space-y-5 order-2 lg:order-1">
@@ -100,25 +99,29 @@
                 @endforelse
             </div>
         </div>
+        <div
+            wire:loading wire:target="sendContact"
+            x-show="open"
+            x-transition
+            class="bg-gray-700 bg-opacity-70 transition duration-150 ease-in-out fixed z-10 left-0 top-0 w-screen h-screen"
+        >
+            <div class="flex justify-center items-center w-screen h-screen">
+                Loading.....
+            </div>
+        </div>
         <div id="contact" class="mb-5">
             <div class="flex justify-center items-center p-5">
                 <p class="text-4xl  text-center border-b-4 border-blue-900"> Contact me </p>
             </div>
             <div>
-                <form class="grid md:grid-cols-2 gap-5" action="">
-                    <label class="col-span-2 md:col-span-1" for="name">
-                        Nome
-                        <input id="name" type="text" required class="h-12 w-full shadow-md shadow-blue-300 text-black appearance-none rounded-lg bg-opacity-20 px-3 py-2">
-                    </label>
-
-                    <label class="col-span-2 md:col-span-1" for="email">
-                        E-mail
-                        <input id="email" type="email" required class="h-12 w-full shadow-md shadow-blue-300 text-black appearance-none rounded-lg bg-opacity-20  px-3 py-2">
-                    </label>
-                    <label class="col-span-2" for="">
-                        Menssagem
-                        <textarea class="w-full shadow-md shadow-blue-300 text-black appearance-none rounded-lg bg-opacity-20  px-3 py-2" rows="10"></textarea>
-                    </label>
+                <form class="grid md:grid-cols-2 gap-5" wire:submit.prevent="sendContact">
+                    <x-inputs.input model="name" label="First Name" required class="col-span-2 md:col-span-1 text-white"/>
+                    <x-inputs.input model="email" label="E-mail" required class="col-span-2 md:col-span-1 text-white"/>
+                    <x-inputs.text-area model="message" label="Message" required class="col-span-2 text-white">
+                    </x-inputs.text-area>
+                    <div class="flex items-center justify-start w-full">
+                        <button type="submit" class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm">Save</button>
+                    </div>
                 </form>
             </div>
         </div>
