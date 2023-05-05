@@ -17,7 +17,7 @@ class GetIpAddressWeb
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $dataLocation = \Stevebauman\Location\Facades\Location::get('187.122.61.86');
+        $dataLocation = \Stevebauman\Location\Facades\Location::get($request->ip);
 
         $data['ip'] = $dataLocation->ip;
         $data['countryName'] = $dataLocation->countryName;
