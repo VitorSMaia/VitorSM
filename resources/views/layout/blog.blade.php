@@ -82,7 +82,7 @@
                 {{--            </a>--}}
 
                 <a href="#contact" x-on:mouseleave="contact = false;" x-on:mouseenter="contact = true;" class="hover:scale-120 flex justify-center items-center cursor-pointer flex-1 md:gap-1 lg:gap-2 text-white">
-                    <img class="fill-white h-10" src="{{ asset('./img/blog/icons8-call-me-white.png') }}" alt="Contact Me" srcset="Contact Me">
+                    <img class="fill-white h-10" src="{{ asset('./img/blog/icons8-call-me-white.png') }}" alt="Contact Me">
                     <p x-show="contact"
                        x-transition:enter="transition ease-out duration-300"
                        x-transition:enter-start="opacity-0 scale-90"
@@ -113,7 +113,7 @@
                     </a>
                 @else
                     <a href="{{ route('login') }}" x-on:mouseleave="login = false;" x-on:mouseenter="login = true;" class="hover:scale-120 flex justify-center items-center cursor-pointer flex-1 md:gap-1 lg:gap-2 text-white">
-                        <img class="fill-white h-10" src="{{ asset('./img/blog/icons8-enter-white.png') }}" alt="Login" srcset="Login">
+                        <img class="fill-white h-10" src="{{ asset('./img/blog/icons8-enter-white.png') }}" alt="Login">
                         <p x-show="login"
                            x-transition:enter="transition ease-out duration-300"
                            x-transition:enter-start="opacity-0 scale-90"
@@ -175,7 +175,7 @@
     </header>
 
 
-    <main class="md:mt-20 px-10">
+    <main class="my-5 px-10">
         @yield('content')
     </main>
     <footer class="px-10 mt-10 border-t-2 py-2 border-white">
