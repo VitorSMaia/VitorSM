@@ -21,6 +21,7 @@ Route::group(['middleware' => 'ip'], function() {
 
 Route::group(['middleware' => 'guest'], function() {
     Route::view('/login','auth.login')->name('login');
+    Route::post('/login',[\App\Http\Controllers\AuthController::class,'login'])->name('loginController');
 });
 
 Route::group(['middleware' => 'auth'], function () {

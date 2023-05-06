@@ -22,7 +22,7 @@ class Login extends Component
         $this->user_id = auth()->id();
     }
 
-    public function updatedCaptcha($token = null)
+    public function captcha($token = null)
     {
         $response = Http::post('https://hcaptcha.com/siteverify?&secret=' . env('CAPTCHA_SECRET_KEY') . '&response=' . $token);
 
@@ -36,7 +36,8 @@ class Login extends Component
         }
     }
 
-    public function save() {
+    public function save(Request $request) {
+
         $request = $this->state;
 
         $authController = new AuthController();
