@@ -42,7 +42,7 @@ class Login extends Component
 
         $authController = new AuthController();
 
-        $authControllerReturn =$authController->login($request);
+        $authControllerReturn = $authController->login($request);
 
         if($authControllerReturn['status'] === 'success') {
             return redirect()->route('dashboard');

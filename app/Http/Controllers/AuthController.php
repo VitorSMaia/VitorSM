@@ -42,8 +42,9 @@ class AuthController extends Controller
         $auth = Auth::attempt($ValidatorRequest);
 
         if ($auth) {
-            sleep(1);
-            return redirect()->route('dashboard');
+            return [
+                'status' => 'success'
+            ];
         }
 
     }
