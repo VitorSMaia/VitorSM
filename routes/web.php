@@ -21,7 +21,6 @@ Route::group(['middleware' => 'ip'], function() {
 
 Route::group(['middleware' => 'guest'], function() {
     Route::view('/login','auth.login')->name('login');
-    Route::view('/register','auth.register')->name('register');
 });
 
 Route::group(['middleware' => 'auth'], function () {

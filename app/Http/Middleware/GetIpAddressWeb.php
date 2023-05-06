@@ -17,7 +17,7 @@ class GetIpAddressWeb
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $dataLocation = \Stevebauman\Location\Facades\Location::get($this->getIp());
+        $dataLocation = \Stevebauman\Location\Facades\Location::get();
 
         $data['ip'] = $dataLocation->ip;
         $data['countryName'] = $dataLocation->countryName;
@@ -31,6 +31,7 @@ class GetIpAddressWeb
         GetIpAddress::query()->updateOrCreate([
             'ip' => $data['ip']
         ],$data);
+
         return $next($request);
     }
 

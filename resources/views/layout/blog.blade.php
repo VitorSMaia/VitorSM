@@ -1,6 +1,9 @@
 <!doctype html>
 <html class="scroll-smooth">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-W9N600DNKP"></script>
     <script>
@@ -10,19 +13,9 @@
 
         gtag('config', 'G-W9N600DNKP');
     </script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="icon" href="https://d1unuvan7ts7ur.cloudfront.net/0x826/a014fb64-2cf2-4382-bb75-77d808d5c1f4/01GWFA7AZ53Q0HKDT5PF8B08RC" type="image" sizes="16x16">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-
-    <title>VitorSM Blog</title>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    @vite('resources/css/app.css')
-    @vite('resources/js/app.js')
-    @livewireStyles
-    <script !src="">
+    <script defer src="https://cdn.tailwindcss.com"></script>
+    <script defer !src="">
         window.onload = function(e) {
             var offset = document.getElementsByTagName('header')[0].offsetTop;
             var menu = document.getElementsByTagName('header')[0];
@@ -36,17 +29,29 @@
             });
         }
     </script>
+
+
+    <link rel="icon" href="https://d1unuvan7ts7ur.cloudfront.net/0x826/a014fb64-2cf2-4382-bb75-77d808d5c1f4/01GWFA7AZ53Q0HKDT5PF8B08RC" type="image" sizes="16x16">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
+    <title>VitorSM Blog</title>
+
+    @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
+    @livewireStyles
+
 </head>
 <body class="bg-void text-bleached-silk overflow-x-hidden">
-    <header class="flex justify-center items-center w-full p-3">
-        <nav  x-data="{ link: false, git: false, blog: false, contact: false, config: false, login: false }" class="grid grid-cols-2 bg-opacity-70 bg-darth-torus w-3/4 py-2 px-5 rounded-full hidden md:flex">
+    <header class="flex justify-center items-center w-full mb-5">
+        <nav  x-data="{ link: false, git: false, blog: false, contact: false, config: false, login: false }" class="grid grid-cols-2 text-white bg-opacity-70 bg-darth-torus w-full py-2 px-5  hidden md:flex">
 
-            <a href="/" class="w-max flex justify-start items-center cursor-pointer flex-1 md:gap-1 lg:gap-2 text-white">
+            <a href="/" class="w-max flex justify-start items-center cursor-pointer flex-1 md:gap-1 lg:gap-2 ">
                 <p class="font-light text-xl">VitorSM</p>
             </a>
 
             <div class="flex justify-between gap-x-5 items-center">
-                <a target="_blank" href="https://www.linkedin.com/in/vitorsmaia/" x-on:mouseleave="link = false;" x-on:mouseenter="link = true;" class=" hover:scale-120 flex justify-center items-center  cursor-pointer flex-1 md:gap-1 lg:gap-2 text-white">
+                <a target="_blank" href="https://www.linkedin.com/in/vitorsmaia/" x-on:mouseleave="link = false;" x-on:mouseenter="link = true;" class=" hover:scale-120 flex justify-center items-center  cursor-pointer flex-1 md:gap-1 lg:gap-2 ">
                     <svg class="fill-white h-10"  xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 32 32"  stroke="rgb(1, 10, 38)" fill="rgb(255, 255, 255)"   height="96px"><path d="M 7.5 5 C 6.132813 5 5 6.132813 5 7.5 L 5 24.5 C 5 25.867188 6.132813 27 7.5 27 L 24.5 27 C 25.867188 27 27 25.867188 27 24.5 L 27 7.5 C 27 6.132813 25.867188 5 24.5 5 Z M 7.5 7 L 24.5 7 C 24.785156 7 25 7.214844 25 7.5 L 25 24.5 C 25 24.785156 24.785156 25 24.5 25 L 7.5 25 C 7.214844 25 7 24.785156 7 24.5 L 7 7.5 C 7 7.214844 7.214844 7 7.5 7 Z M 10.4375 8.71875 C 9.488281 8.71875 8.71875 9.488281 8.71875 10.4375 C 8.71875 11.386719 9.488281 12.15625 10.4375 12.15625 C 11.386719 12.15625 12.15625 11.386719 12.15625 10.4375 C 12.15625 9.488281 11.386719 8.71875 10.4375 8.71875 Z M 19.46875 13.28125 C 18.035156 13.28125 17.082031 14.066406 16.6875 14.8125 L 16.625 14.8125 L 16.625 13.5 L 13.8125 13.5 L 13.8125 23 L 16.75 23 L 16.75 18.3125 C 16.75 17.074219 16.996094 15.875 18.53125 15.875 C 20.042969 15.875 20.0625 17.273438 20.0625 18.375 L 20.0625 23 L 23 23 L 23 17.78125 C 23 15.226563 22.457031 13.28125 19.46875 13.28125 Z M 9 13.5 L 9 23 L 11.96875 23 L 11.96875 13.5 Z" /></svg>
                     <p x-show="link"
                        x-transition:enter="transition ease-out duration-300"
@@ -57,7 +62,7 @@
                        x-transition:leave-end="opacity-0 scale-90"
                     >Linkedin</p>
                 </a>
-                <a target="_blank" href="https://github.com/VitorSMaia" x-on:mouseleave="git = false;" x-on:mouseenter="git = true;" class="hover:scale-120 flex justify-center items-center cursor-pointer flex-1 md:gap-1 lg:gap-2 text-white">
+                <a target="_blank" href="https://github.com/VitorSMaia" x-on:mouseleave="git = false;" x-on:mouseenter="git = true;" class="hover:scale-120 flex justify-center items-center cursor-pointer flex-1 md:gap-1 lg:gap-2 ">
                     <svg class="fill-white h-10"
                          xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                          viewBox="0 0 24 24">
@@ -72,7 +77,7 @@
                        x-transition:leave-end="opacity-0 scale-90"
                     >GitHub</p>
                 </a>
-                {{--            <a target="_blank" href="https://github.com/VitorSMaia" x-on:mouseleave="blog = false;" x-on:mouseenter="blog = true;" class="flex justify-center items-center cursor-pointer flex-1 md:gap-1 lg:gap-2 text-white">--}}
+                {{--            <a target="_blank" href="https://github.com/VitorSMaia" x-on:mouseleave="blog = false;" x-on:mouseenter="blog = true;" class="flex justify-center items-center cursor-pointer flex-1 md:gap-1 lg:gap-2 ">--}}
                 {{--                <svg class="fill-whiter hover:-rotate-45 h-10 scale-120 hover:scale-150"--}}
                 {{--                     xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"--}}
                 {{--                     viewBox="0 0 24 24">--}}
@@ -81,7 +86,7 @@
                 {{--                <p x-show="blog" x-transition.duration.500ms>Blog</p>--}}
                 {{--            </a>--}}
 
-                <a href="#contact" x-on:mouseleave="contact = false;" x-on:mouseenter="contact = true;" class="hover:scale-120 flex justify-center items-center cursor-pointer flex-1 md:gap-1 lg:gap-2 text-white">
+                <a href="#contact" x-on:mouseleave="contact = false;" x-on:mouseenter="contact = true;" class="hover:scale-120 flex justify-center items-center cursor-pointer flex-1 md:gap-1 lg:gap-2 ">
                     <img class="fill-white h-10" src="{{ asset('./img/blog/icons8-call-me-white.png') }}" alt="Contact Me">
                     <p x-show="contact"
                        x-transition:enter="transition ease-out duration-300"
@@ -94,7 +99,7 @@
                 </a>
 
                 @if(Auth::check())
-                    <a href="{{ route('dashboard') }}" x-on:mouseleave="config = false;" x-on:mouseenter="config = true;" class="hover:scale-120 flex justify-center items-center cursor-pointer flex-1 md:gap-1 lg:gap-2 text-white">
+                    <a href="{{ route('dashboard') }}" x-on:mouseleave="config = false;" x-on:mouseenter="config = true;" class="hover:scale-120 flex justify-center items-center cursor-pointer flex-1 md:gap-1 lg:gap-2 ">
                         <svg xmlns="http://www.w3.org/2000/svg"
                              class="h-10"
                              x="0px" y="0px"
@@ -112,7 +117,7 @@
                         >Config</p>
                     </a>
                 @else
-                    <a href="{{ route('login') }}" x-on:mouseleave="login = false;" x-on:mouseenter="login = true;" class="hover:scale-120 flex justify-center items-center cursor-pointer flex-1 md:gap-1 lg:gap-2 text-white">
+                    <a href="{{ route('login') }}" x-on:mouseleave="login = false;" x-on:mouseenter="login = true;" class="hover:scale-120 flex justify-center items-center cursor-pointer flex-1 md:gap-1 lg:gap-2 ">
                         <img class="fill-white h-10" src="{{ asset('./img/blog/icons8-enter-white.png') }}" alt="Login">
                         <p x-show="login"
                            x-transition:enter="transition ease-out duration-300"
@@ -129,18 +134,18 @@
                     <div  x-data="{ lang: false }" @click.outside="lang = false" title="Change Language" class="dropdown dropdown-end">
                         <div tabindex="0" class="btn btn-ghost gap-1 normal-case">
                             <div class="cursor-pointer" @click="lang = ! lang" >
-                            <span class="material-symbols-rounded text-white">
-                                translate
-                            </span>
+                                    <span class="material-symbols-rounded ">
+                                        translate
+                                    </span>
                                 <template x-if="lang" >
-                                <span class="material-symbols-rounded text-white">
-                                    expand_less
-                                </span>
+                                        <span class="material-symbols-rounded ">
+                                            expand_less
+                                        </span>
                                 </template>
                                 <template x-if="!lang" >
-                                <span class="material-symbols-rounded text-white">
-                                    expand_more
-                                </span>
+                                        <span class="material-symbols-rounded ">
+                                            expand_more
+                                        </span>
                                 </template>
                             </div>
                         </div>
@@ -173,17 +178,12 @@
             </div>
         </nav>
     </header>
-
-
-    <main class="my-5 px-10">
+    <main >
         @yield('content')
     </main>
-    <footer class="px-10 mt-10 border-t-2 py-2 border-white">
+    <footer class="absolute w-full border-t-2 p-5 border-white">
         <p>© Copyright {{ now()->format('Y') }} by Vitor Maia.</p>
     </footer>
-
-
-@livewireScripts
-
+    @livewireScripts
 </body>
 </html>
