@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -13,20 +14,33 @@ class AuthController extends Controller
 
     public function loginLaravel(Request $request)
     {
+        $request = $request->all();
+
         $ValidatorRequest = Validator::make($request, [
             'email' => 'required|email|exists:users,email',
             'password' => 'required',
-            'g-recaptcha-response' => 'required|captcha',
-            'h-captcha-response' => 'required|captcha'
+            'g-recaptcha-response' => 'sometimes',
+            'h-captcha-response' => 'sometimes'
         ])->validate();
 
-        $auth = Auth::attempt($ValidatorRequest);
+            $token = $ValidatorRequest['h-captcha-response'];
+            unset($ValidatorRequest['h-captcha-response']);
+            unset($ValidatorRequest['g-recaptcha-response']);
 
-        if ($auth) {
-            $this->showLoading = true;
-            sleep(1);
-            return redirect()->route('dashboard');
-        }
+            $response = Http::post('https://hcaptcha.com/siteverify?&secret=' . env('CAPTCHA_SECRET_KEY') . '&response=' . $token)->json();
+
+            if($response['success']) {
+                dd($response);
+
+                $auth = Auth::attempt($ValidatorRequest);
+
+                if ($auth) {
+                    $this->showLoading = true;
+                    sleep(1);
+                    return redirect()->route('dashboard');
+                }
+            }
+
 
     }
 
