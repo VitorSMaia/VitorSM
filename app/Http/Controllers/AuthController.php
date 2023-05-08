@@ -29,8 +29,8 @@ class AuthController extends Controller
 
             $response = Http::post('https://hcaptcha.com/siteverify?&secret=' . env('CAPTCHA_SECRET_KEY') . '&response=' . $token)->json();
 
-            if($response['success']) {
                 dd($response);
+            if($response['success']) {
 
                 $auth = Auth::attempt($ValidatorRequest);
 
