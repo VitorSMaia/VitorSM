@@ -15,7 +15,7 @@
     </script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.tailwindcss.com"></script>
-    <script defer !src="">
+    <script defer>
         window.onload = function(e) {
             var offset = document.getElementsByTagName('header')[0].offsetTop;
             var menu = document.getElementsByTagName('header')[0];
