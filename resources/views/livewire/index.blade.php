@@ -48,7 +48,7 @@
 
         <div class="md:mt-72">
             <div class="flex">
-                <p class="text-xl font-sans font-semibold animate-pulse-invert-blog" >Skills</p>
+                <p class="text-xl font-sans font-semibold " >Skills</p>
             </div>
             <div  class="grid grid-cols-1 sm:grid-cols-4 gap-5">
                 <div class="px-5 py-2 rounded-lg  bg-white  shadow-md shadow-[#E44D26] flex items-center justify-between">
@@ -135,9 +135,9 @@
             <div id="xp"></div>
             <div class="md:mt-72">
                 <div class="flex gap-x-2">
-                    <p class="text-xl font-sans font-semibold animate-pulse-blog" >My</p>
-                    <p class="text-xl font-sans font-semibold animate-pulse-invert-blog">work</p>
-                    <p class="text-xl font-sans font-semibold animate-pulse-blog">experiences</p>
+                    <p class="text-xl font-sans font-semibold">My</p>
+                    <p class="text-xl font-sans font-semibold">work</p>
+                    <p class="text-xl font-sans font-semibold">experiences</p>
                 </div>
                 @foreach($response->xp as $itemXp)
                     <div class="flex flex-col md:flex-row justify-center items-center my-2">
@@ -145,15 +145,15 @@
                             <a target="_blank" href="{{ $itemXp['url'] }}" class="shrink-0">
                                 <img src="{{ $itemXp['image'] }}" class="h-auto w-48" alt="company logo">
                             </a>
-                            <div class="relative ml-3 hidden w-full md:block">
-                                <span class="absolute inset-x-0 top-1/2 h-0.5 -translate-y-1/2 transform bg-grey-70"></span>
+                            <div class="ml-3 hidden w-full md:block">
+                                <span class="inset-x-0 top-1/2 h-0.5 -translate-y-1/2 transform bg-grey-70"></span>
                             </div>
                         </div>
                         <div class="md:w-3/5">
-                            <div class="relative flex md:pl-18">
-                                <span class="absolute top-1 hidden h-4 w-4 rounded-full border-2 border-grey-40 bg-white md:block"></span>
+                            <div class="flex md:pl-18">
+                                <span class="hidden h-4 w-4 rounded-full border-2 border-grey-40 bg-white md:block"></span>
                                 <div class="mt-1 flex">
-                                    <i class="bx bxs-right-arrow hidden md:block"></i>
+                                    <i class="hidden md:block"></i>
                                     <div class="md:-mt-1 md:pl-8">
                                         <span class="block font-body font-bold text-grey-40">{{ (new \App\Helpers\Helper)->formatDate($itemXp['dt_start']) }} - {{ (new \App\Helpers\Helper)->formatDate($itemXp['dt_end']) }}</span>
                                         <span class="block pt-2 font-header text-xl font-bold uppercase ">{{ $itemXp['office'] }}</span>
@@ -207,8 +207,8 @@
             
             <div id="contact" class="">
                 <div class="flex gap-x-2">
-                    <p class="text-xl font-sans font-semibold animate-pulse-blog" >Contact</p>
-                    <p class="text-xl font-sans font-semibold animate-pulse-invert-blog">me</p>
+                    <p class="text-xl font-sans font-semibold">Contact</p>
+                    <p class="text-xl font-sans font-semibold">me</p>
                 </div>
                 <form class="grid md:grid-cols-2 gap-5" wire:submit.prevent="sendContact">
                     <x-inputs.input model="name" label="Name" required class="col-span-2 md:col-span-1 text-white"/>

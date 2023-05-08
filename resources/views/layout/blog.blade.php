@@ -97,7 +97,7 @@
                 @endif
             </div>
         </nav>
-        <nav x-data="{ modal: false }" class="text-white bg-opacity-70 bg-darth-torus w-full py-2 px-5  flex justify-between items-center gap-5 md:hidden">
+        <nav x-data="{ modal: false }" class="z-10 text-white bg-opacity-70 bg-darth-torus w-full py-2 px-5  flex justify-between items-center gap-5 md:hidden">
             <a href="/" class="w-max flex justify-start items-center cursor-pointer flex-1 md:gap-1 lg:gap-2 ">
                 <p class="font-light text-xl">VitorSM</p>
             </a>
@@ -112,7 +112,7 @@
             <div
                 x-show="modal"
                 data-te-modal-init
-                class="fixed left-0 top-0 z-[1055] bg-darth-torus h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+                class="fixed left-0 top-0 z-50 bg-darth-torus h-full w-full overflow-y-auto overflow-x-hidden outline-none"
                 id="rightTopModal"
                 tabindex="-1"
                 aria-labelledby="rightTopModalLabel"
@@ -162,10 +162,10 @@
             </div>
         </nav>
     </header>
-    <main >
+    <main>
         @yield('content')
     </main>
-    <footer class="absolute w-full border-t-2 p-5 border-white">
+    <footer class="absolute z-1 w-full border-t-2 p-5 border-white">
         <p>© Copyright {{ now()->format('Y') }} by Vitor Maia.</p>
     </footer>
     @livewire('components.modal-info')
