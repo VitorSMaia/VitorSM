@@ -183,8 +183,7 @@
             </div>
         </div>
     </nav>
-         <nav x-data="{ lang:false }" class="grid grid-cols-2 text-white bg-opacity-70 bg-darth-torus w-full py-2 px-5  md:hidden">
-         
+         <nav x-data="{ lang:false }" class="text-white bg-opacity-70 bg-darth-torus w-full py-2 px-5  grid grid-cols-1 gap-5 md:hidden">
             <a href="/" class="w-max flex justify-start items-center cursor-pointer flex-1 md:gap-1 lg:gap-2 ">
                 <p class="font-light text-xl">VitorSM</p>
             </a>
