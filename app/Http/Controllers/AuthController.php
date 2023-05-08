@@ -29,14 +29,10 @@ class AuthController extends Controller
 
             $response = Http::post('https://hcaptcha.com/siteverify?&secret=' . env('CAPTCHA_SECRET_KEY') . '&response=' . $token)->json();
 
-                dd($response);
             if($response['success']) {
-
                 $auth = Auth::attempt($ValidatorRequest);
 
                 if ($auth) {
-                    $this->showLoading = true;
-                    sleep(1);
                     return redirect()->route('dashboard');
                 }
             }
@@ -49,8 +45,6 @@ class AuthController extends Controller
         $ValidatorRequest = Validator::make($request, [
             'email' => 'required|email|exists:users,email',
             'password' => 'required',
-//            'g-recaptcha-response' => 'required|captcha',
-//            'h-captcha-response' => 'required|captcha'
         ])->validate();
 
         $auth = Auth::attempt($ValidatorRequest);
