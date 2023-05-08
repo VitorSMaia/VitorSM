@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
              'email' => 'vitor.smaia1@gmail.com',
              'password' => 'Jvmme1306!@#',
          ]);
+
+        $this->call(GeralSeeder::class);;
     }
 }
