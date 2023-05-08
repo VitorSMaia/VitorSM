@@ -30,6 +30,7 @@
                     <img class="object-contain  h-[500px]" src="https://d1unuvan7ts7ur.cloudfront.net/0x826/a014fb64-2cf2-4382-bb75-77d808d5c1f4/01GWFA7AZ53Q0HKDT5PF8B08RC" alt="img-profile">
                 </div>
             </div>
+            @if(false)
             <div class="">
                 <div class="flex gap-x-2">
                     <p class="text-xl font-sans font-semibold animate-pulse-blog" >Recent</p>
@@ -45,6 +46,7 @@
                     </div>
                 </div>
             </div>
+            @endif
             @if($response->xp)
                 <div class="">
                     <div class="flex gap-x-2">
