@@ -17,20 +17,26 @@ class GetIpAddressWeb
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $dataLocation = \Stevebauman\Location\Facades\Location::get();
+        $dataLocation = \Stevebauman\Location\Facades\Location::get($this->getIp());
 
-        $data['ip'] = $dataLocation->ip;
-        $data['countryName'] = $dataLocation->countryName;
-        $data['countryCode'] = $dataLocation->countryCode;
-        $data['regionCode'] = $dataLocation->regionCode;
-        $data['regionName'] = $dataLocation->regionName;
-        $data['cityName'] = $dataLocation->cityName;
-        $data['latitude'] = $dataLocation->latitude;
-        $data['longitude'] = $dataLocation->longitude;
+        if($dataLocation) {
+            $data['ip'] = $dataLocation->ip;
+            $data['countryName'] = $dataLocation->countryName;
+            $data['countryCode'] = $dataLocation->countryCode;
+            $data['regionCode'] = $dataLocation->regionCode;
+            $data['regionName'] = $dataLocation->regionName;
+            $data['cityName'] = $dataLocation->cityName;
+            $data['latitude'] = $dataLocation->latitude;
+            $data['longitude'] = $dataLocation->longitude;
 
-        GetIpAddress::query()->updateOrCreate([
-            'ip' => $data['ip']
-        ],$data);
+            GetIpAddress::query()->updateOrCreate([
+                'ip' => $data['ip']
+            ],$data);
+        }
+
+
+
+
 
         return $next($request);
     }
