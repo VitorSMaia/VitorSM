@@ -59,7 +59,7 @@
                         <span class="text-gray-700 px-6 py-3 flex items-center" >{{ $itemAccess['longitude'] }}</span>
                     </td>
                     <td class="border-dashed border-t border-gray-200 firstName">
-                        <span class="text-gray-700 px-6 py-3 flex items-center" >{{ (new \App\Helpers\Helper)->formatDate($itemAccess['created_at']) }}</span>
+                        <span class="text-gray-700 px-6 py-3 flex items-center" >{{ (new \App\Helpers\Helper)->formatDateTime($itemAccess['created_at']) }}</span>
                     </td>
 
 

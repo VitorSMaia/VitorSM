@@ -12,7 +12,9 @@ class Helper {
         }
     }
 
-    public function formatModelInput($model = '') {
-        return ucfirst($model);
+    public function formatDateTime($date = null) {
+        if($date) {
+            return Carbon::parse($date)->format('M d, Y H:i:s');
+        }
     }
 }
