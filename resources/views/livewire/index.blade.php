@@ -19,6 +19,14 @@
                     I also have knowledge in mobile development, in Flutter and React Native.
                 </p>
                 <p>
+                    Always seeking to acquire new knowledge and solutions in order to bring improvements, 
+                    automate the processes carried out on a daily basis.
+                </p>
+                <p>
+                    I want to apply my experience and knowledge in advanced technologies, 
+                    working on innovative and challenging projects that contribute to the success of the company and the community in which I am inserted.
+                </p>
+                <p>
                     With this broad range of skills, I am capable of creating high-quality and scalable web and mobile
                     applications. I am always seeking new challenges and have a strong commitment to the quality of my work.
                 </p>
