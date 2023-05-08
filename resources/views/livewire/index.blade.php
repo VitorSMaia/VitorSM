@@ -12,7 +12,8 @@
     <div class="mx-5 md:mx-10 grid gap-y-10">
         <div class="grid lg:grid-cols-2">
             <div class="order-2 lg:order-1 flex flex-col items-center md:justify-around break-words gap-y-5 md:gap-y-0">
-                <h1 class="text-3xl font-mono">Hi there, I'm Vitor</h1>
+                <h1 class="text-3xl font-mono">Hi, I'm Vitor</h1>
+                <h1 id="title" class="text-xl font-mono h-10"></h1>
                 <p>
                     I am a full-stack developer with extensive experience in Laravel and skills in Bootstrap,
                     Tailwind, and AlpineJS. In addition, I have experience in databases, including MySQL, SQL Server, and PgSQL.
@@ -34,12 +35,87 @@
                     I look forward to contributing my knowledge and skills to your company. If you need further information, please feel free to contact me.
                 </p>
             </div>
-            <div class="order-1 lg:order-2 flex items-center justify-end">
+            <div class="order-1 lg:order-2 md:flex items-center justify-end hidden">
                 <img class="object-contain  h-[500px]" src="https://d1unuvan7ts7ur.cloudfront.net/0x826/a014fb64-2cf2-4382-bb75-77d808d5c1f4/01GWFA7AZ53Q0HKDT5PF8B08RC" alt="img-profile">
             </div>
+            <div class="hidden mt-5 md:flex order-3 col-span-2 ">
+                <a  href="#skills">
+                    <img class="cursor-pointer animate-bounce" src="{{ asset('./img/blog/icons8-upward-arrow-50.png') }}"/>
+                </a>
+            </div>
         </div>
+        <div id="skills"></div>
+
+        <div class="md:mt-72">
+            <div class="flex">
+                <p class="text-xl font-sans font-semibold animate-pulse-invert-blog" >Skills</p>
+            </div>
+            <div  class="grid grid-cols-1 sm:grid-cols-4 gap-5">
+                <div class="px-5 py-2 rounded-lg  bg-white  shadow-md shadow-[#E44D26] flex items-center justify-between">
+                    <img class="h-16" src="https://raw.githubusercontent.com/gilbarbara/logos/ab7d59c865eb7ad8096c432a91a372a938980cb8/logos/html-5.svg"/>
+                    <p class="text-lg font-semibold text-black">HTML</p>
+                </div>
+                <div class="px-5 py-2 rounded-lg  bg-white  shadow-md shadow-[#264DE4] flex items-center justify-between">
+                    <img class="h-16" src="https://raw.githubusercontent.com/gilbarbara/logos/ab7d59c865eb7ad8096c432a91a372a938980cb8/logos/css-3.svg"/>
+                    <p class="text-lg font-semibold text-black">CSS</p>
+                </div>
+                <div class="px-5 py-2 rounded-lg  bg-white  shadow-md shadow-[#F7DF1E] flex items-center justify-between">
+                    <img class="h-16" src="https://raw.githubusercontent.com/gilbarbara/logos/ab7d59c865eb7ad8096c432a91a372a938980cb8/logos/javascript.svg"/>
+                    <p class="text-lg font-semibold text-black">JS</p>
+                </div>
+                   <div class="px-5 py-2 rounded-lg  bg-white  shadow-md shadow-[#6181B6] flex items-center justify-between">
+                    <img class="h-16" src="https://raw.githubusercontent.com/gilbarbara/logos/ab7d59c865eb7ad8096c432a91a372a938980cb8/logos/php.svg"/>
+                    <p class="text-lg font-semibold text-black">PHP</p>
+                </div>
+                <div class="px-5 py-2 rounded-lg  bg-white  shadow-md shadow-[#FF645B] flex items-center justify-between">
+                    <img class="h-16" src="https://raw.githubusercontent.com/gilbarbara/logos/ab7d59c865eb7ad8096c432a91a372a938980cb8/logos/laravel.svg"/>
+                    <p class="text-lg font-semibold text-black">Laravel</p>
+                </div>
+                <div class="px-5 py-2 rounded-lg  bg-white  shadow-md shadow-[#18B6B9] flex items-center justify-between">
+                    <img class="h-16" src="https://raw.githubusercontent.com/gilbarbara/logos/ab7d59c865eb7ad8096c432a91a372a938980cb8/logos/tailwindcss-icon.svg"/>
+                    <p class="text-lg font-semibold text-black">TailwindCSS</p>
+                </div>
+
+                <div class="px-5 py-2 rounded-lg  bg-white  shadow-md shadow-[#41B883] flex items-center justify-between">
+                    <img class="h-16" src="https://raw.githubusercontent.com/gilbarbara/logos/ab7d59c865eb7ad8096c432a91a372a938980cb8/logos/vue.svg"/>
+                    <p class="text-lg font-semibold text-black">VueJS</p>
+                </div>
+                <div class="px-5 py-2 rounded-lg  bg-white  shadow-md shadow-[#161614] flex items-center justify-between">
+                    <img class="h-16" src="https://raw.githubusercontent.com/gilbarbara/logos/ab7d59c865eb7ad8096c432a91a372a938980cb8/logos/github-icon.svg"/>
+                    <p class="text-lg font-semibold text-black">GitHub</p>
+                </div>
+                <div class="px-5 py-2 rounded-lg  bg-white  shadow-md shadow-[#B52E31] flex items-center justify-between">
+                    <img class="h-16" src="https://raw.githubusercontent.com/gilbarbara/logos/ab7d59c865eb7ad8096c432a91a372a938980cb8/logos/angular-icon.svg"/>
+                    <p class="text-lg font-semibold text-black">AngulaJS</p>
+                </div>
+
+                <div class="px-5 py-2 rounded-lg  bg-white  shadow-md shadow-[#69AB5B] flex items-center justify-between">
+                    <img class="h-16" src="https://raw.githubusercontent.com/gilbarbara/logos/ab7d59c865eb7ad8096c432a91a372a938980cb8/logos/nodejs-icon.svg"/>
+                    <p class="text-lg font-semibold text-black">NodeJS</p>
+                </div>
+
+                <div class="px-5 py-2 rounded-lg  bg-white  shadow-md shadow-[#47C5FB] flex items-center justify-between">
+                    <img class="h-16" src="https://raw.githubusercontent.com/gilbarbara/logos/ab7d59c865eb7ad8096c432a91a372a938980cb8/logos/flutter.svg"/>
+                    <p class="text-lg font-semibold text-black">Flutter</p>
+                </div>
+                <div class="px-5 py-2 rounded-lg  bg-white  shadow-md shadow-[#00D8FF] flex items-center justify-between break-all">
+                    <img class="h-16" src="https://raw.githubusercontent.com/gilbarbara/logos/ab7d59c865eb7ad8096c432a91a372a938980cb8/logos/react.svg"/>
+                    <p class="text-lg font-semibold text-black">React Native</p>
+                </div>
+            </div>
+        </div>
+            <div class="hidden md:flex ">
+                <a  href="#xp">
+                    <img class="cursor-pointer animate-bounce" src="{{ asset('./img/blog/icons8-upward-arrow-50.png') }}"/>
+                </a>
+            </div>
+
+
+
+
+
         @if(false)
-        <div class="">
+        <div class="md:mt-72">
             <div class="flex gap-x-2">
                 <p class="text-xl font-sans font-semibold animate-pulse-blog" >Recent</p>
                 <p class="text-xl font-sans font-semibold animate-pulse-invert-blog">Projects</p>
@@ -56,7 +132,8 @@
         </div>
         @endif
         @if($response->xp)
-            <div class="">
+            <div id="xp"></div>
+            <div class="md:mt-72">
                 <div class="flex gap-x-2">
                     <p class="text-xl font-sans font-semibold animate-pulse-blog" >My</p>
                     <p class="text-xl font-sans font-semibold animate-pulse-invert-blog">work</p>
@@ -89,10 +166,15 @@
                         </div>
                     </div>
                 @endforeach
+                <div class="hidden mt-5 md:flex order-3 col-span-2 ">
+                    <a  href="#contact">
+                        <img class="cursor-pointer animate-bounce" src="{{ asset('./img/blog/icons8-upward-arrow-50.png') }}"/>
+                    </a>
+                </div>
             </div>
         @endif
         @if($response->post)
-            <div class="">
+            <div class="md:mt-72">
                 <div class="flex gap-x-2 ">
                     <p class="text-xl font-sans font-semibold animate-pulse-blog" >Recent</p>
                     <p class="text-xl font-sans font-semibold animate-pulse-invert-blog">Posts</p>
@@ -119,29 +201,10 @@
             </div>
         @endif
 
+        
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-5">
-            <div class="grid grid-cols-2 md:grid-cols-3">
-                <div class="flex col-span-3">
-                    <p class="text-xl font-sans font-semibold animate-pulse-blog" >Know</p>
-                    <p class="text-xl font-sans font-semibold animate-pulse-invert-blog">ledge</p>
-                </div>
-
-                <i class="w-max h-14 cursor-pointer text-[40px] hover:text-[#E44D26] devicon-html5-plain"></i>
-                <i class="w-max h-14 cursor-pointer text-[40px] hover:text-[#33A9DC] devicon-css3-plain"></i>
-                <i class="w-max h-14 cursor-pointer text-[40px] hover:text-[#F0DB4F] devicon-javascript-plain"></i>
-
-                <i class="w-max h-14 cursor-pointer text-[40px] hover:text-[#FD4F31] devicon-laravel-plain"></i>
-                <i class="w-max h-14 cursor-pointer  text-[70px] scale-150 hover:text-[#38B2AC] devicon-tailwindcss-original-wordmark"></i>
-                <i class="w-max h-14 cursor-pointer text-[40px] hover:text-[#41B883] devicon-vuejs-plain"></i>
-                <i class="w-max h-14 cursor-pointer text-[40px] hover:text-[#83CD29] devicon-nodejs-plain"></i>
-                <i class="w-max h-14 cursor-pointer text-[40px] hover:text-[#DD1B16] devicon-angularjs-plain"></i>
-                <i class="w-max h-14 cursor-pointer text-[40px] hover:text-[#007ACC] devicon-typescript-plain"></i>
-
-                <i class="w-max h-14 cursor-pointer text-[40px] hover:text-[#3FB6D3] devicon-flutter-plain"></i>
-                <i class="w-max h-14 cursor-pointer text-[40px] hover:text-[#6181B6] devicon-php-plain"></i>
-
-            </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-5 md:mt-72">
+            
             <div id="contact" class="">
                 <div class="flex gap-x-2">
                     <p class="text-xl font-sans font-semibold animate-pulse-blog" >Contact</p>
