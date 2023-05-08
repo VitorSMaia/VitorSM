@@ -14,8 +14,8 @@
         gtag('config', 'G-W9N600DNKP');
     </script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script defer src="https://cdn.tailwindcss.com"></script>
-    <script defer>
+
+    {{-- <script defer>
         window.onload = function(e) {
             var offset = document.getElementsByTagName('header')[0].offsetTop;
             var menu = document.getElementsByTagName('header')[0];
@@ -28,14 +28,14 @@
                 }
             });
         }
-    </script>
+    </script> --}}
 
 
     <link rel="icon" href="https://d1unuvan7ts7ur.cloudfront.net/0x826/a014fb64-2cf2-4382-bb75-77d808d5c1f4/01GWFA7AZ53Q0HKDT5PF8B08RC" type="image" sizes="16x16">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 
-    <title>VitorSM Blog</title>
+    <title>VitorSM</title>
 
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
@@ -44,7 +44,7 @@
 </head>
 <body class="bg-void text-bleached-silk overflow-x-hidden">
     <header class="flex justify-center items-center w-full mb-5">
-        <nav  x-data="{ link: false, git: false, blog: false, contact: false, config: false, login: false }" class="grid grid-cols-2 text-white bg-opacity-70 bg-darth-torus w-full py-2 px-5  hidden md:flex">
+        <nav  x-data="{ link: false, git: false, blog: false, contact: false, config: false, login: false, lang:false }" class="grid grid-cols-2 text-white bg-opacity-70 bg-darth-torus w-full py-2 px-5  hidden md:flex">
 
             <a href="/" class="w-max flex justify-start items-center cursor-pointer flex-1 md:gap-1 lg:gap-2 ">
                 <p class="font-light text-xl">VitorSM</p>
@@ -131,9 +131,9 @@
                 @endif
 
                 <div class="mx-2">
-                    <div  x-data="{ lang: false }" @click.outside="lang = false" title="Change Language" class="dropdown dropdown-end">
-                        <div tabindex="0" class="btn btn-ghost gap-1 normal-case">
-                            <div class="cursor-pointer flex gap-x-1" @click="lang = ! lang" >
+                    <div   title="Change Language" class="dropdown dropdown-end">
+                            <div class="cursor-pointer flex gap-x-1" x-on:click="lang = !lang" >
+
                                 <img src="{{ asset('./img/blog/icons8-translation-64.png') }}" class="h-10"/>
                                 <template x-if="lang" >
                                         <span class="material-symbols-rounded ">

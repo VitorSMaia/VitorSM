@@ -17,7 +17,7 @@
     </script>
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script defer src="https://cdn.tailwindcss.com"></script>
+{{--    <script defer src="https://cdn.tailwindcss.com"></script>--}}
 
     <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
     <script defer !src="">
@@ -41,7 +41,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 
-    <title>VitorSM Blog</title>
+    <title>VitorSM</title>
 
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
