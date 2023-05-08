@@ -1,8 +1,8 @@
 <div>
     @if($show)
-        <div class="py-12 bg-transparent bg-opacity-70 transition duration-150 ease-in-out z-10 fixed h-full top-10 left-0 bottom-0 right-0 " id="modal">
+        <div class="py-12  transition duration-150 ease-in-out z-10 fixed h-full top-10 left-0 bottom-0 right-0 " id="modal">
             <div role="alert" class="container mx-auto w-11/12 md:w-72  overflow-auto ">
-                <div class="relative py-8 px-5 md:px-10 bg-white bg-opacity-10 shadow-md rounded border border-gray-400 shadow-md">
+                <div class="relative py-8 px-5 md:px-10 bg-clarinet  shadow-md rounded border border-gray-400 shadow-md">
                     <div class="text-white text-center">
                         <span class="material-symbols-rounded p-1 rounded-full bg-green-500 border border-white text-6xl font-bold">
                             done
@@ -24,7 +24,7 @@
             Livewire.emit('close')
         }
 
-        setTimeout(closeTimeout, 1000)
+        setTimeout(closeTimeout, 1000*5)
 
 
     </script>
