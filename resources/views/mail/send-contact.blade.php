@@ -759,6 +759,16 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td align="center" class="esd-block-text es-p10t">
+                                            <p>{{ $request['message'] }}<br></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" class="esd-block-text es-p10t">
+                                            <p>{{ $request['email'] }}<br></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td align="center" class="esd-block-button es-p40t es-p20b"><span class="es-button-border"><a href="https://viewstripo.email/" class="es-button" target="_blank">Label</a></span></td>
                                     </tr>
                                     </tbody>
