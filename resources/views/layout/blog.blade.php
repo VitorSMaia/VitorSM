@@ -32,7 +32,7 @@
 
 
     <link rel="icon" href="https://d1unuvan7ts7ur.cloudfront.net/0x826/a014fb64-2cf2-4382-bb75-77d808d5c1f4/01GWFA7AZ53Q0HKDT5PF8B08RC" type="image" sizes="16x16">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+{{--    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />--}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 
     <title>VitorSM Blog</title>
@@ -133,10 +133,8 @@
                 <div class="mx-2">
                     <div  x-data="{ lang: false }" @click.outside="lang = false" title="Change Language" class="dropdown dropdown-end">
                         <div tabindex="0" class="btn btn-ghost gap-1 normal-case">
-                            <div class="cursor-pointer" @click="lang = ! lang" >
-                                    <span class="material-symbols-rounded ">
-                                        translate
-                                    </span>
+                            <div class="cursor-pointer flex gap-x-1" @click="lang = ! lang" >
+                                <img src="{{ asset('./img/blog/icons8-translation-64.png') }}" class="h-10"/>
                                 <template x-if="lang" >
                                         <span class="material-symbols-rounded ">
                                             expand_less
@@ -149,8 +147,8 @@
                                 </template>
                             </div>
                         </div>
-                        <div x-show="lang" x-transition class="bg-clarinet shadow-md rounded-lg absolute z-10">
-                            <ul class="flex flex-col gap-2 p-2 w-32" tabindex="0">
+                        <div x-show="lang" x-transition class="bg-clarinet shadow-md rounded-lg absolute z-10 right-10 top-16">
+                            <ul class="flex flex-col gap-2 p-2 w-48" tabindex="0">
                                 <li class="hover:bg-clear-blue hover:text-void p-2 rounded-lg">
                                     <button class="flex justify-between w-full  items-center  active">
                                         <img loading="lazy" width="20" height="20" alt="English" src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.0/svg/1f1ec-1f1e7.svg">
@@ -184,6 +182,7 @@
     <footer class="absolute w-full border-t-2 p-5 border-white">
         <p>© Copyright {{ now()->format('Y') }} by Vitor Maia.</p>
     </footer>
+    @livewire('components.modal-info')
     @livewireScripts
 </body>
 </html>

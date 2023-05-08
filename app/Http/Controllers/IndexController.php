@@ -11,8 +11,8 @@ class IndexController extends Controller
     public function sendContact($request)
     {
         $ValidatorRequest = Validator::make($request, [
-            'name' => 'required',
-            'email' => 'required',
+            'name' => 'required|min:5',
+            'email' => 'required|email',
             'message' => 'required'
         ])->validate();
 

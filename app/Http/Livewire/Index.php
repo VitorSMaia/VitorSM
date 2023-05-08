@@ -7,12 +7,15 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\XpController;
 use App\Mail\SendContact;
 use App\Models\Post;
+use App\Traits\ModalCenter;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 use StdClass;
 
 class Index extends Component
 {
+    use ModalCenter;
+
     public $state = [];
 
     public function getPost() {
@@ -41,6 +44,7 @@ class Index extends Component
         $indexControllerReturn = $indexController->sendContact($request);
 
         if($indexControllerReturn['status'] === 'success') {
+            $this->openModalInfo();
             $this->reset();
         }
 

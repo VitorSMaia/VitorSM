@@ -25,6 +25,7 @@
 
 @yield('content')
 @livewire('components.modal-center')
+@livewire('components.modal-info')
 @livewireScripts
 </body>
 </html>

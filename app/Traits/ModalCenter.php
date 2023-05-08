@@ -16,4 +16,9 @@ trait ModalCenter
     {
         $this->emit('close');
     }
+
+    public function openModalInfo($params = [])
+    {
+        $this->emit('openInfo', $params);
+    }
 }
