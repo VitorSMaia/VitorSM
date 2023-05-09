@@ -42,18 +42,7 @@
 
     <title>VitorSM</title>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6001125874185977"
-     crossorigin="anonymous"></script>
-         <!-- Bloco 1 -->
-    <ins class="adsbygoogle"
-        style="display:block"
-        data-ad-client="ca-pub-6001125874185977"
-        data-ad-slot="7657402003"
-        data-ad-format="auto"
-        data-full-width-responsive="true"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+
 
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
@@ -116,5 +105,8 @@ function rodape(conteudos, el) {
 }
 rodape(textos);
 
+
+
 </script>
+
 </html>

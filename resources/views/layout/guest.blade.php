@@ -34,16 +34,7 @@
         }
     </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6001125874185977" crossorigin="anonymous"></script>
-    <!-- Bloco 1 -->
-    <ins class="adsbygoogle"
-        style="display:block"
-        data-ad-client="ca-pub-6001125874185977"
-        data-ad-slot="7657402003"
-        data-ad-format="auto"
-        data-full-width-responsive="true"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+
 
 
     <link rel="icon" href="https://d1unuvan7ts7ur.cloudfront.net/0x826/a014fb64-2cf2-4382-bb75-77d808d5c1f4/01GWFA7AZ53Q0HKDT5PF8B08RC" type="image" sizes="16x16">
@@ -71,5 +62,7 @@
     <p>© Copyright {{ now()->format('Y') }} by Vitor Maia.</p>
 </footer>
 @livewireScripts
+
+
 </body>
 </html>
