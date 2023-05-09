@@ -42,6 +42,9 @@
 
     <title>VitorSM</title>
 
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6001125874185977"
+     crossorigin="anonymous"></script>
+
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
     @livewireStyles
