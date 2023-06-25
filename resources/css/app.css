@@ -70,5 +70,35 @@
         outline: none;
     }
 
+    .imagem-container {
+        perspective: 1000px;
+        overflow: hidden;
 
+    }
+
+    /*.imagem-container:hover {*/
+    /*    animation: test 3s;*/
+    /*}*/
+
+    .imagem {
+        transition: transform 2s;
+        transform: rotateX(0deg) rotateY(180deg);
+        animation: test 10s infinite;
+    }
+
+    /*.imagem:hover {*/
+    /*    transform: rotateX(0deg) rotateY(0deg);*/
+    /*}*/
+
+    @keyframes test {
+        0% {
+            transform: rotateX(0deg) rotateY(180deg);
+        }
+        50% {
+            transform: rotateX(360deg) rotateY(0deg);
+        }
+        100% {
+            transform: rotateX(0deg) rotateY(180deg);
+        }
+    }
 }

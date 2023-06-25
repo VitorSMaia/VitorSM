@@ -9,15 +9,14 @@ use Livewire\Component;
 class Table extends Component
 {
     use ModalCenter;
+
     public $state = [
         'search' => '',
         'head' => [
-            'Company' => 'company',
-//            'Imagem' => 'image',
-            'Office' => 'office',
+            'Title' => 'title',
             'Description' => 'description',
-            'Date Start' => 'dt_start',
-            'Date End' => 'dt_end',
+            'Url' => 'url',
+            'Frameworks or Language' => 'frameworks_or_languages',
         ]
     ];
 
@@ -40,7 +39,7 @@ class Table extends Component
         $this->getProject();
     }
 
-    public function deleteXp($id)
+    public function deleteProject($id)
     {
         $projectController = new ProjectController();
         $projectControllerReturn = $projectController->delete($id);

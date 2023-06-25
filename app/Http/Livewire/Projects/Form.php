@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Projects;
 
 use App\Http\Controllers\ProjectController;
+use App\Traits\ModalCenter;
 use Livewire\Component;
 
 class Form extends Component
@@ -16,11 +17,11 @@ class Form extends Component
     public function mount($id = null) {
         if($id) {
             $this->idXp = $id;
-            $this->state = $this->getXp();
+            $this->state = $this->getProject();
         }
     }
 
-    public function getXp() {
+    public function getProject() {
         $ProjectController = new ProjectController();
         $ProjectControllerReturn = $ProjectController->find($this->idXp);
 
@@ -31,6 +32,11 @@ class Form extends Component
 
     public function updateOrCreate() {
         $request = $this->state;
+
+        $json = '{
+            "id":5
+        }';
+dd(json_decode($json)->id, $request);
 
         $ProjectController = new ProjectController();
         $ProjectControllerReturn = $ProjectController->updateOrCreate($this->idXp, $request);

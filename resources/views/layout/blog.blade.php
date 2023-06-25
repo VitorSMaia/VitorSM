@@ -26,10 +26,10 @@
             document.addEventListener('scroll', function() {
                 if (document.body.scrollTop > offset || document.documentElement.scrollTop > offset) {
                     menu.style.position = 'fixed';
-                    menu.classList.add('bg-darth-torus');
+                    // menu.classList.add('bg-darth-torus');
                     menu.classList.add('bg-opacity-70');
                 } else {
-                    menu.classList.remove('bg-darth-torus');
+                    // menu.classList.remove('bg-darth-torus');
                     menu.classList.remove('bg-opacity-70');
                     menu.style.position = 'initial';
 
@@ -52,13 +52,13 @@
     @livewireStyles
 
 </head>
-<body class="bg-void text-bleached-silk overflow-x-hidden">
+<body class="bg-gray-200 text-bleached-silk overflow-x-hidden">
 
     <x-header></x-header>
     <main>
         @yield('content')
     </main>
-    <footer class="absolute z-1 w-full border-t-2 p-5 border-white">
+    <footer class="w-full border-t-2 p-5  border border-t-black text-black">
         <p>© Copyright {{ now()->format('Y') }} by Vitor Maia.</p>
     </footer>
     @livewire('components.modal-info')
@@ -66,6 +66,7 @@
 </body>
 
 <script>
+
 
 var div = document.getElementById('title');
 var textos = ["Front-End Developer", "Back-End Developer", "FullStack Developer"];

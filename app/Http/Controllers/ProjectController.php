@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ProjectController extends Controller
 {
@@ -42,13 +43,10 @@ class ProjectController extends Controller
     public function updateOrCreate($idProject = null, $request) {
 
         $ValidatorRequest = Validator::make($request, [
-            'company' => 'required',
-            'image' => 'required',
-            'url' => 'required',
-            'office' => 'required',
+            'title' => 'required',
             'description' => 'required',
-            'dt_start' => 'required',
-            'dt_end' => 'required|after:dt_start',
+            'url' => 'required',
+            'frameworks_or_languade' => 'required',
 
         ])->validate();
 
