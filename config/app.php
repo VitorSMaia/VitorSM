@@ -212,6 +212,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
+        'Twilio' => Aloha\Twilio\Support\Laravel\Facade::class,
     ])->toArray(),
 
 ];
