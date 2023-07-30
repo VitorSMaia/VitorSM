@@ -64,7 +64,7 @@ class SendWpp extends Command
 
         $client = new \GuzzleHttp\Client();
         $response = $client->post($url, [
-            RequestOptions::FORM_PARAMS => ['number' => 5511913564982, 'message' => $message],
+            RequestOptions::FORM_PARAMS => ['number' => 5585999747117, 'message' => $message],
         ]);
     }
 }
