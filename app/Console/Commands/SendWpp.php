@@ -7,6 +7,8 @@ use Carbon\Carbon;
 use GuzzleHttp\RequestOptions;
 use http\Header;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
+
 //use Aloha\Twilio\TwilioInterface;
 
 class SendWpp extends Command
@@ -50,6 +52,7 @@ class SendWpp extends Command
         ];
 
          $nowH = now()->format('H');
+         $now = now()->format('d/m/Y H:i:s');
 
         if($nowH < 12) {
             $key = array_rand($good_morning, 1);
@@ -66,5 +69,7 @@ class SendWpp extends Command
         $response = $client->post($url, [
             RequestOptions::FORM_PARAMS => ['number' => 5585999747117, 'message' => $message],
         ]);
+        
+        Log::info("Menssagem enviada $now" );
     }
 }
